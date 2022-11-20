@@ -1,0 +1,57 @@
+
+cd example-app
+
+/Applications/XAMPP/bin/php artisan serve
+
+
+/Applications/XAMPP/bin/php artisan make:controller TestMessage
+
+
+/Applications/XAMPP/bin/php artisan migrate
+/Applications/XAMPP/bin/php artisan migrate --seed
+/Applications/XAMPP/bin/php artisan migrate:fresh --seed
+
+/Applications/XAMPP/bin/php artisan migrate:rollback
+
+/**
+* Создание псевдонима (symlink) для storage
+* создается в папке public
+*/
+/Applications/XAMPP/bin/php artisan storage:link
+
+/**
+* Создание модели, миграции и фабрики Post
+* имя указывается в единственном числе!
+* и в кемалкейс например (AdminUser)
+*/
+/Applications/XAMPP/bin/php artisan make:model Post --migration --factory
+
+
+/**
+* Добавить столбец в существующею таблицу users
+*/
+/Applications/XAMPP/bin/php artisan make:migration add_votes_to_users_table --table=users
+
+
+/**
+* Показать правила маршрутизации
+*/
+/Applications/XAMPP/bin/php artisan route:list
+
+
+/**
+* Создать controller IndexController
+*/
+/Applications/XAMPP/bin/php artisan make:controller IndexController
+
+/**
+* Создать ссылку для редактирования пагинатора, шаблон появится в каталоге
+* resources/views/vendor/pagination
+* файл для редактирования tailwind.blade.php
+*/
+/Applications/XAMPP/bin/php artisan vendor:publish --tag=laravel-pagination
+
+/**
+* Создать middleware Teasting
+*/
+/Applications/XAMPP/bin/php artisan make:middleware Teasting
