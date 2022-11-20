@@ -13,7 +13,8 @@ const mix = require('laravel-mix');
 
  const arrayCss = [
     'normalize.css',
-    'master.css'
+    'master.css',
+    'home.css'
   ];
   
   const arrayCssFullPath = arrayCss.map(item => {
