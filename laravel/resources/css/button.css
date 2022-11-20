@@ -1,0 +1,29 @@
+.button-container {
+  width: 65px;
+}
+
+.button-container__btn {
+  display: block;
+
+  width: 100%;
+  height: 65px;
+
+  padding: 0;
+
+  border: 1px solid black;
+  border-radius: 10px;
+
+  background: none;
+}
+
+.button-container__text {
+  display: block;
+
+  text-align: center;
+}
+
+.button-container__btn--active {
+  border-color: greenyellow;
+
+  color: greenyellow;
+}

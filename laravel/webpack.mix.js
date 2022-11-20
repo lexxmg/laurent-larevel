@@ -14,6 +14,7 @@ const mix = require('laravel-mix');
  const arrayCss = [
     'normalize.css',
     'master.css',
+    'button.css',
     'home.css'
   ];
   
