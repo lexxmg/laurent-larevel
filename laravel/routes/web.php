@@ -14,3 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'home'])->name('home');
+Route::get('/out', [\App\Http\Controllers\LaurentController::class, 'out'])->name('Laurent');

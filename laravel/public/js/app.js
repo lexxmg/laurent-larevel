@@ -19560,12 +19560,25 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
+"use strict";
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
+
+
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+var container = document.querySelector('.main-home__button-container-js');
+container.addEventListener('click', function (event) {
+  var id = event.target.id;
+  console.log(id);
+  fetch("http://127.0.0.1:8001/out?out=".concat(id, "&param=on")).then(function (res) {
+    return res.json();
+  }).then(function (data) {
+    console.log(data);
+  });
+});
 })();
 
 /******/ })()
