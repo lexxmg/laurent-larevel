@@ -19569,16 +19569,38 @@ var __webpack_exports__ = {};
 
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-var container = document.querySelector('.main-home__button-container-js');
+var container = document.querySelector('.main-home__button-container-js'),
+  allBtn = document.querySelectorAll('.button-container__btn-js');
 container.addEventListener('click', function (event) {
   var id = event.target.id;
   console.log(id);
-  fetch("http://127.0.0.1:8001/out?out=".concat(id, "&param=on")).then(function (res) {
+  fetch("/out?out=".concat(id, "&param=on")).then(function (res) {
     return res.json();
   }).then(function (data) {
     console.log(data);
+    if (data.stat) {
+      event.target.classList.add('button-container__btn--active');
+    } else {
+      item.classList.remove('button-container__btn--active');
+    }
   });
 });
+setInterval(function () {
+  fetch('/status').then(function (res) {
+    return res.json();
+  }).then(function (data) {
+    allBtn.forEach(function (item, i) {
+      if (item.dataset.type === 'out') {
+        var outStatArr = data.out_table0.split('');
+        if (+outStatArr[item.dataset.stat - 1]) {
+          item.classList.add('button-container__btn--active');
+        } else {
+          item.classList.remove('button-container__btn--active');
+        }
+      }
+    });
+  });
+}, 1000);
 })();
 
 /******/ })()

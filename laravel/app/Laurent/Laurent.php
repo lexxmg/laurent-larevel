@@ -9,7 +9,7 @@ class Laurent
         return 'test laurent';
     }
 
-    public function allStatus(string $ip)
+    public static function allStatus(string $ip)
     {
         $res = file_get_contents($ip . '/status.xml');
         $xml = simplexml_load_string($res);

@@ -16,4 +16,9 @@ class LaurentController extends Controller
 
         return $res;
     }
+
+    public function allStatus()
+    {
+        return Laurent::allStatus('http://192.168.0.101');
+    }
 }

@@ -13,7 +13,7 @@
   border: 1px solid black;
   border-radius: 10px;
 
-  background-color: greenyellow;
+  background-color: transparent;
 }
 
 .button-container__text {
@@ -24,6 +24,7 @@
 
 .button-container__btn--active {
   border-color: greenyellow;
+  background-color: yellowgreen;
 
   color: greenyellow;
 }

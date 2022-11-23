@@ -8,9 +8,13 @@
         <h1>Главная</h1>
         
         <div class="main-home__button-container main-home__button-container-js">
-          @for ($i = 0; $i < 16; $i++)
-            @include('partials.button', ['id' => $i + 1])
-          @endfor
+          @foreach ($arr as $item)
+            @include('partials.button', [
+              'id' => $item['id'],
+              'stat' => $item['stat'],
+              'type' => $item['type']
+            ])
+          @endforeach
         </div>
     </div>
   </main>
