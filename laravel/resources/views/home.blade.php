@@ -11,8 +11,11 @@
           @foreach ($arr as $item)
             @include('partials.button', [
               'id' => $item['id'],
+              'out' => $item['out'],
               'stat' => $item['stat'],
-              'type' => $item['type']
+              'type' => $item['type'],
+              'mode' => $item['mode'],
+              'name' => $item['name']
             ])
           @endforeach
         </div>

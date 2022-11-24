@@ -453,10 +453,10 @@ h1, h2, h3, p, figure {
 }
 
 .button-container__btn--active {
-  border-color: greenyellow;
-  background-color: yellowgreen;
+  border-color: green;
+  background-color: green;
 
-  color: greenyellow;
+  color: green;
 }
 
 .main-home {

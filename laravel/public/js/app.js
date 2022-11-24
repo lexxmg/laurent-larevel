@@ -19573,17 +19573,24 @@ var container = document.querySelector('.main-home__button-container-js'),
   allBtn = document.querySelectorAll('.button-container__btn-js');
 container.addEventListener('click', function (event) {
   var id = event.target.id;
-  console.log(id);
-  fetch("/out?out=".concat(id, "&param=on")).then(function (res) {
-    return res.json();
-  }).then(function (data) {
-    console.log(data);
-    if (data.stat) {
+  if (id) {
+    event.target.disabled = true;
+    if (event.target.dataset.mode === 'timer') {
       event.target.classList.add('button-container__btn--active');
-    } else {
-      item.classList.remove('button-container__btn--active');
     }
-  });
+    fetch("/out?id=".concat(id)).then(function (res) {
+      return res.json();
+    }).then(function (data) {
+      console.log(data);
+      if (data.stat) {
+        event.target.classList.add('button-container__btn--active');
+        event.target.disabled = false;
+      } else {
+        event.target.classList.remove('button-container__btn--active');
+        event.target.disabled = false;
+      }
+    });
+  }
 });
 setInterval(function () {
   fetch('/status').then(function (res) {
@@ -19593,6 +19600,14 @@ setInterval(function () {
       if (item.dataset.type === 'out') {
         var outStatArr = data.out_table0.split('');
         if (+outStatArr[item.dataset.stat - 1]) {
+          item.classList.add('button-container__btn--active');
+        } else {
+          item.classList.remove('button-container__btn--active');
+        }
+      }
+      if (item.dataset.type === 'relle') {
+        var _outStatArr = data.rele_table0.split('');
+        if (+_outStatArr[item.dataset.stat - 1]) {
           item.classList.add('button-container__btn--active');
         } else {
           item.classList.remove('button-container__btn--active');

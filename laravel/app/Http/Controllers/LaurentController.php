@@ -4,17 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Laurent\Laurent;
+use App\Models\Out;
 
 class LaurentController extends Controller
 {
     public function out(Request $request)
     {
-        $out = (int) $request->out;
-        $param = $request->param;
+        $id = $request->id;
+        $modelOut = Out::find($id);
 
-        $res = Laurent::runOut('http://192.168.0.101', 'out', $out, $param);
+        $type = $modelOut->type;
+        $out = (int) $modelOut->out;
+        $mode = $modelOut->mode;
+        
+        if ($mode === 'toggle') {
+            return Laurent::toggleOut('http://192.168.0.101', $type, $out);
+        }
 
-        return $res;
+        if ($mode === 'timer') {
+            return Laurent::outTimer('http://192.168.0.101', $type, $out);
+        }
     }
 
     public function allStatus()
