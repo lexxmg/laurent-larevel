@@ -14,6 +14,17 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        \App\Models\Laurent::insert([
+            [
+                'name' => 'Спальня',
+                'host' => 'http://192.168.0.101'
+            ],
+            [
+                'name' => 'ГОстинная',
+                'host' => 'http://192.168.0.102'
+            ]
+        ]);
+
         \App\Models\Out::insert([
             [
                 'name' => '1',
@@ -21,7 +32,8 @@ class DatabaseSeeder extends Seeder
                 'type' => 'out',
                 'stat' => '1',
                 'mode' => 'toggle',
-                'revers' => false
+                'revers' => false,
+                'laurent_id' => 1
             ],
             [
                 'name' => '2',
@@ -29,7 +41,8 @@ class DatabaseSeeder extends Seeder
                 'type' => 'out',
                 'stat' => '2',
                 'mode' => 'toggle',
-                'revers' => false
+                'revers' => false,
+                'laurent_id' => 1
             ],
             [
                 'name' => '3',
@@ -37,7 +50,8 @@ class DatabaseSeeder extends Seeder
                 'type' => 'out',
                 'stat' => '3',
                 'mode' => 'toggle',
-                'revers' => false
+                'revers' => false,
+                'laurent_id' => 1
             ],
             [
                 'name' => '4',
@@ -45,7 +59,8 @@ class DatabaseSeeder extends Seeder
                 'type' => 'out',
                 'stat' => '4',
                 'mode' => 'toggle',
-                'revers' => false
+                'revers' => false,
+                'laurent_id' => 1
             ],
             [
                 'name' => '5',
@@ -53,7 +68,8 @@ class DatabaseSeeder extends Seeder
                 'type' => 'out',
                 'stat' => '5',
                 'mode' => 'toggle',
-                'revers' => false
+                'revers' => false,
+                'laurent_id' => 1
             ],
             [
                 'name' => '6',
@@ -61,7 +77,8 @@ class DatabaseSeeder extends Seeder
                 'type' => 'out',
                 'stat' => '6',
                 'mode' => 'toggle',
-                'revers' => false
+                'revers' => false,
+                'laurent_id' => 1
             ],
             [
                 'name' => '7',
@@ -69,7 +86,8 @@ class DatabaseSeeder extends Seeder
                 'type' => 'out',
                 'stat' => '7',
                 'mode' => 'toggle',
-                'revers' => false
+                'revers' => false,
+                'laurent_id' => 1
             ],
             [
                 'name' => '8',
@@ -77,7 +95,8 @@ class DatabaseSeeder extends Seeder
                 'type' => 'out',
                 'stat' => '8',
                 'mode' => 'toggle',
-                'revers' => false
+                'revers' => false,
+                'laurent_id' => 1
             ],
             [
                 'name' => 'цветы',
@@ -85,7 +104,8 @@ class DatabaseSeeder extends Seeder
                 'type' => 'out',
                 'stat' => '9',
                 'mode' => 'toggle',
-                'revers' => false
+                'revers' => false,
+                'laurent_id' => 2
             ],
             [
                 'name' => 'релле-2',
@@ -93,7 +113,8 @@ class DatabaseSeeder extends Seeder
                 'type' => 'relle',
                 'stat' => '2',
                 'mode' => 'toggle',
-                'revers' => false
+                'revers' => false,
+                'laurent_id' => 1
             ]
         ]);
     }

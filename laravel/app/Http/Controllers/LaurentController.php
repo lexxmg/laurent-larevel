@@ -16,13 +16,14 @@ class LaurentController extends Controller
         $type = $modelOut->type;
         $out = (int) $modelOut->out;
         $mode = $modelOut->mode;
+        $host = $modelOut->laurent->host;
         
         if ($mode === 'toggle') {
-            return Laurent::toggleOut('http://192.168.0.101', $type, $out);
+            return Laurent::toggleOut($host, $type, $out);
         }
 
         if ($mode === 'timer') {
-            return Laurent::outTimer('http://192.168.0.101', $type, $out);
+            return Laurent::outTimer($host, $type, $out);
         }
     }
 

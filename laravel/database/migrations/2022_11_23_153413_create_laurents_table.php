@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOutsTable extends Migration
+class CreateLaurentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,11 @@ class CreateOutsTable extends Migration
      */
     public function up()
     {
-        Schema::create('outs', function (Blueprint $table) {
+        Schema::create('laurents', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('out');
-            $table->string('type');
-            $table->string('stat');
-            $table->string('mode');
-            $table->boolean('revers');
-            $table->foreignId('laurent_id')->constrained();
+            $table->string('host');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +29,6 @@ class CreateOutsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('outs');
+        Schema::dropIfExists('laurents');
     }
 }

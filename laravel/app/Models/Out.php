@@ -15,6 +15,12 @@ class Out extends Model
         'type',
         'stat',
         'mode',
-        'revers'
+        'revers',
+        'laurent_id'
     ];
+
+    public function laurent()
+    {
+        return $this->belongsTo(Laurent::class);
+    }
 }
