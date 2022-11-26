@@ -18,7 +18,7 @@ container.addEventListener('click', event => {
     fetch(`/out?id=${id}`)
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        
         if (data.stat) {
           event.target.classList.add('button-container__btn--active');
           event.target.disabled = false;
@@ -31,10 +31,12 @@ container.addEventListener('click', event => {
 });
 
 setInterval(() => {
-  fetch('/status').then(res => res.json()).then(data => {
+  fetch('/all-status').then(res => res.json()).then(data => {
     allBtn.forEach((item, i) => {
+      if (item.disabled) return;
+
       if (item.dataset.type === 'out') {
-        const outStatArr = data.out_table0.split('');
+        const outStatArr = data[item.dataset.laurentId].stat.out_table0.split('');
 
         if ( +outStatArr[item.dataset.stat - 1] ) {
           item.classList.add('button-container__btn--active');
@@ -44,7 +46,7 @@ setInterval(() => {
       }
 
       if (item.dataset.type === 'relle') {
-        const outStatArr = data.rele_table0.split('');
+        const outStatArr = data[item.dataset.laurentId].stat.rele_table0.split('');
 
         if ( +outStatArr[item.dataset.stat - 1] ) {
           item.classList.add('button-container__btn--active');
@@ -55,3 +57,10 @@ setInterval(() => {
     });
   });
 }, 1000);
+
+// setInterval(async () => {
+//   const res = await fetch('/all-status');
+//   const data = await res.json();
+// 
+//   console.log(data[1].stat);
+// }, 10000);

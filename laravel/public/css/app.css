@@ -446,6 +446,12 @@ h1, h2, h3, p, figure {
   background-color: transparent;
 }
 
+.button-container__btn:disabled {
+  opacity: .3;
+
+  cursor: no-drop;
+}
+
 .button-container__text {
   display: block;
 
@@ -457,6 +463,8 @@ h1, h2, h3, p, figure {
   background-color: green;
 
   color: green;
+
+  opacity: 1 !important;
 }
 
 .main-home {

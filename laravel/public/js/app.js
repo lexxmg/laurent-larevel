@@ -19581,7 +19581,6 @@ container.addEventListener('click', function (event) {
     fetch("/out?id=".concat(id)).then(function (res) {
       return res.json();
     }).then(function (data) {
-      console.log(data);
       if (data.stat) {
         event.target.classList.add('button-container__btn--active');
         event.target.disabled = false;
@@ -19593,12 +19592,13 @@ container.addEventListener('click', function (event) {
   }
 });
 setInterval(function () {
-  fetch('/status').then(function (res) {
+  fetch('/all-status').then(function (res) {
     return res.json();
   }).then(function (data) {
     allBtn.forEach(function (item, i) {
+      if (item.disabled) return;
       if (item.dataset.type === 'out') {
-        var outStatArr = data.out_table0.split('');
+        var outStatArr = data[item.dataset.laurentId].stat.out_table0.split('');
         if (+outStatArr[item.dataset.stat - 1]) {
           item.classList.add('button-container__btn--active');
         } else {
@@ -19606,7 +19606,7 @@ setInterval(function () {
         }
       }
       if (item.dataset.type === 'relle') {
-        var _outStatArr = data.rele_table0.split('');
+        var _outStatArr = data[item.dataset.laurentId].stat.rele_table0.split('');
         if (+_outStatArr[item.dataset.stat - 1]) {
           item.classList.add('button-container__btn--active');
         } else {
@@ -19616,6 +19616,13 @@ setInterval(function () {
     });
   });
 }, 1000);
+
+// setInterval(async () => {
+//   const res = await fetch('/all-status');
+//   const data = await res.json();
+// 
+//   console.log(data[1].stat);
+// }, 10000);
 })();
 
 /******/ })()

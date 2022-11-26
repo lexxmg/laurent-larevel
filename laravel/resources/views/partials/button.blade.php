@@ -6,6 +6,10 @@
     data-stat="{{ $stat }}"
     data-type="{{ $type }}"
     data-mode="{{ $mode }}"
+    data-laurent-id="{{ $laurent_id }}"
+    @if (!$laurentOn)
+        disabled
+    @endif
     aria-label="text">
   </button>
 

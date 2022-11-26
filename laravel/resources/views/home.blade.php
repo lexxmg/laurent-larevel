@@ -13,9 +13,11 @@
               'id' => $item['id'],
               'out' => $item['out'],
               'stat' => $item['stat'],
-              'type' => $item['type'],
-              'mode' => $item['mode'],
-              'name' => $item['name']
+              'type' => $item->type['name'],
+              'mode' => $item->mode['name'],
+              'name' => $item['name'],
+              'laurent_id' => $item['laurent_id'],
+              'laurentOn' => $item->laurent['on']
             ])
           @endforeach
         </div>

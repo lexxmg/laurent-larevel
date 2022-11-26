@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLaurentsTable extends Migration
+class CreateTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateLaurentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('laurents', function (Blueprint $table) {
+        Schema::create('types', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('host');
-            $table->text('description')->nullable();
-            $table->boolean('on')->default(true);
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateLaurentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('laurents');
+        Schema::dropIfExists('types');
     }
 }

@@ -12,9 +12,9 @@ class Out extends Model
     protected $fillable = [
         'name',
         'out',
-        'type',
+        'type_id',
         'stat',
-        'mode',
+        'mode_id',
         'revers',
         'laurent_id'
     ];
@@ -22,5 +22,15 @@ class Out extends Model
     public function laurent()
     {
         return $this->belongsTo(Laurent::class);
+    }
+
+    public function mode()
+    {
+        return $this->belongsTo(Mode::class);
+    }
+
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
     }
 }

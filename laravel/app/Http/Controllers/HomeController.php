@@ -10,7 +10,7 @@ class HomeController extends Controller
     public function home()
     {
         $arr = Out::all();
-
+        
         return view('home', ['arr' => $arr]);
     }
 }

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Laurent\Laurent;
 use App\Models\Out;
+use App\Models\Laurent as laur;
+use PhpParser\Node\Stmt\Foreach_;
 
 class LaurentController extends Controller
 {
@@ -13,9 +15,9 @@ class LaurentController extends Controller
         $id = $request->id;
         $modelOut = Out::find($id);
 
-        $type = $modelOut->type;
+        $type = $modelOut->type->name;
         $out = (int) $modelOut->out;
-        $mode = $modelOut->mode;
+        $mode = $modelOut->mode->name;
         $host = $modelOut->laurent->host;
         
         if ($mode === 'toggle') {
@@ -27,8 +29,20 @@ class LaurentController extends Controller
         }
     }
 
-    public function allStatus()
+    public function status(Request $request)
     {
-        return Laurent::allStatus('http://192.168.0.101');
+        $id = $request->id;
+        $modelOut = Out::find($id);
+        $host = $modelOut->laurent->host;
+
+        return Laurent::status($host);
+    }
+
+    public function allStatus(Request $request)
+    {
+        $modelLaurent = laur::all();
+        //Laurent::allStatus($modelLaurent);
+        //echo ini_get('default_socket_timeout');
+        return Laurent::allStatus($modelLaurent);
     }
 }

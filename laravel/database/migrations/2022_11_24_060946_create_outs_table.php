@@ -17,11 +17,11 @@ class CreateOutsTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('out');
-            $table->string('type');
+            $table->foreignId('type_id')->constrained();
             $table->string('stat');
-            $table->string('mode');
-            $table->boolean('revers');
-            $table->foreignId('laurent_id')->constrained();
+            $table->foreignId('mode_id')->constrained();
+            $table->boolean('revers')->default(false);
+            $table->foreignId('laurent_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

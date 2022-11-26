@@ -4,11 +4,35 @@ namespace App\Laurent;
 
 class Laurent
 {
-    public static function allStatus(string $url): string
+    /**
+     * Получает состояние всех выходов Laurent ответ JSON
+     * allStatus('http://192.168.0.101')
+     */
+    public static function status(string $url): string
     {
         $result = self::allStatusObj($url);
         
-        return json_encode($result);
+        return json_encode($result, JSON_UNESCAPED_UNICODE);
+    }
+
+    /**
+     * Получает состояние всех Laurent в проекте JSON
+     * allStatus('http://192.168.0.101')
+     */
+    public static function allStatus($stat): string
+    {
+        $result = [];
+    
+        foreach ($stat as $key => $value) {
+            if ($value['on']) {
+                $res = self::allStatusObj($value['host']);
+            } else {
+                $res = ['error' => 'Laurent ' . $value['host'] . ' отключен!'];
+            }
+            $result[$value['id']] = ['id' => $value['id'], 'name' => $value['name'], 'stat' => $res];
+        }
+        
+        return json_encode($result, JSON_UNESCAPED_UNICODE);
     }
 
     /**
@@ -54,12 +78,17 @@ class Laurent
         return self::runOut($url, $type, $out, 'off');
     }
 
-    public static function allStatusObj(string $url): object
+    public static function allStatusObj(string $url)
     {
-        $res = file_get_contents($url . '/status.xml');
-        $xml = simplexml_load_string($res);
-		   
-        return $xml;
+        ini_set('default_socket_timeout', 10);
+
+        try {
+            $res = file_get_contents($url . '/status.xml');
+        } catch (\Throwable $th) {
+            return ['error' => 'Oшибка ответа Laurent ' . $url];
+        }
+        
+        return simplexml_load_string($res);
     }
 
     public static function getStatusOut(string $url, int $out): bool
