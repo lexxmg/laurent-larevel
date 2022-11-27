@@ -19570,7 +19570,8 @@ var __webpack_exports__ = {};
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 var container = document.querySelector('.main-home__button-container-js'),
-  allBtn = document.querySelectorAll('.button-container__btn-js');
+  allBtn = document.querySelectorAll('.button-container__btn-js'),
+  icons = document.querySelector('.icon-container-js');
 container.addEventListener('click', function (event) {
   var id = event.target.id;
   if (id) {
@@ -19622,7 +19623,13 @@ setInterval(function () {
 //   const data = await res.json();
 // 
 //   console.log(data[1].stat);
-// }, 10000);
+// }, 10000);icon-container--hidden''
+icons.addEventListener('click', function (event) {
+  var target = event.target;
+  var icon = target.className;
+  this.classList.add('icon-container--hidden');
+  console.log(icon);
+});
 })();
 
 /******/ })()

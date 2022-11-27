@@ -16,9 +16,7 @@ class CreateOutsTable extends Migration
         Schema::create('outs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('out');
-            $table->foreignId('type_id')->constrained();
-            $table->string('stat');
+            $table->foreignId('gpio_id')->constrained();
             $table->foreignId('mode_id')->constrained();
             $table->boolean('revers')->default(false);
             $table->foreignId('laurent_id')->constrained()->cascadeOnDelete();

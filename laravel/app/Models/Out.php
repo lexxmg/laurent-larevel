@@ -11,9 +11,7 @@ class Out extends Model
 
     protected $fillable = [
         'name',
-        'out',
-        'type_id',
-        'stat',
+        'gpio_ig',
         'mode_id',
         'revers',
         'laurent_id'
@@ -24,13 +22,13 @@ class Out extends Model
         return $this->belongsTo(Laurent::class);
     }
 
+    public function gpio()
+    {
+        return $this->belongsTo(Gpio::class);
+    }
+
     public function mode()
     {
         return $this->belongsTo(Mode::class);
-    }
-
-    public function type()
-    {
-        return $this->belongsTo(Type::class);
     }
 }

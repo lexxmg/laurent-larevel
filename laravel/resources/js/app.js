@@ -3,7 +3,8 @@
 require('./bootstrap');
 
 const container = document.querySelector('.main-home__button-container-js'),
-      allBtn = document.querySelectorAll('.button-container__btn-js');
+      allBtn = document.querySelectorAll('.button-container__btn-js'),
+      icons = document.querySelector('.icon-container-js');
 
 container.addEventListener('click', event => {
   const id = event.target.id;
@@ -63,4 +64,11 @@ setInterval(() => {
 //   const data = await res.json();
 // 
 //   console.log(data[1].stat);
-// }, 10000);
+// }, 10000);icon-container--hidden''
+icons.addEventListener('click', function(event) {
+  const target = event.target;
+  const icon = target.className;
+
+  this.classList.add('icon-container--hidden');
+  console.log(icon);
+});

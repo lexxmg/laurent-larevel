@@ -15,8 +15,8 @@ class LaurentController extends Controller
         $id = $request->id;
         $modelOut = Out::find($id);
 
-        $type = $modelOut->type->name;
-        $out = (int) $modelOut->out;
+        $type = $modelOut->gpio->type;
+        $out = (int) $modelOut->gpio->out;
         $mode = $modelOut->mode->name;
         $host = $modelOut->laurent->host;
         

@@ -11,9 +11,9 @@
           @foreach ($arr as $item)
             @include('partials.button', [
               'id' => $item['id'],
-              'out' => $item['out'],
-              'stat' => $item['stat'],
-              'type' => $item->type['name'],
+              'out' => $item->gpio['out'],
+              'stat' => $item->gpio['out'],
+              'type' => $item->gpio['type'],
               'mode' => $item->mode['name'],
               'name' => $item['name'],
               'laurent_id' => $item['laurent_id'],
@@ -21,6 +21,8 @@
             ])
           @endforeach
         </div>
+
+        @include('partials.icon')
     </div>
   </main>
 @endsection

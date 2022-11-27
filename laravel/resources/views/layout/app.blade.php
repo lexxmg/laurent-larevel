@@ -15,6 +15,8 @@
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
 
+        <link rel="stylesheet" href="/whhg-font/css/whhg.css">
+
         <title>@yield('title')</title>
 
         <link rel="stylesheet" href="/css/app.css">
