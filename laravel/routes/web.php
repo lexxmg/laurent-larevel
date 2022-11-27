@@ -17,3 +17,4 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'home'])->name('ho
 Route::get('/out', [\App\Http\Controllers\LaurentController::class, 'out'])->name('laurent-out');
 Route::get('/status/{id}', [\App\Http\Controllers\LaurentController::class, 'status'])->name('laurent-status');
 Route::get('/all-status', [\App\Http\Controllers\LaurentController::class, 'allStatus'])->name('laurent-all-status');
+Route::get('/add-icon', [\App\Http\Controllers\IconController::class, 'addIcon'])->name('add-icon');

@@ -11,7 +11,8 @@ class Out extends Model
 
     protected $fillable = [
         'name',
-        'gpio_ig',
+        'icon_id',
+        'gpio_id',
         'mode_id',
         'revers',
         'laurent_id'
@@ -30,5 +31,10 @@ class Out extends Model
     public function mode()
     {
         return $this->belongsTo(Mode::class);
+    }
+
+    public function icon()
+    {
+        return $this->belongsTo(Icon::class);
     }
 }

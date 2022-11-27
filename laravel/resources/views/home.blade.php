@@ -15,6 +15,8 @@
               'stat' => $item->gpio['out'],
               'type' => $item->gpio['type'],
               'mode' => $item->mode['name'],
+              'icon' => $item->icon['name'],
+              'revers' => $item['revers'],
               'name' => $item['name'],
               'laurent_id' => $item['laurent_id'],
               'laurentOn' => $item->laurent['on']

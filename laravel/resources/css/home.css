@@ -4,7 +4,6 @@
 
 .main-home__container {
   max-width: 1024px;
-  min-width: 320px;
 
   margin: 0 auto;
 }
@@ -15,3 +14,14 @@
   flex-wrap: wrap;
 }
 
+@media (max-width: 786px) {
+  .main-home {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 340px) {
+  .main-home {
+    padding: 3px;
+  }
+}

@@ -1,12 +1,16 @@
 .button-container {
-  width: 200px;
+  width: calc(100% / 5);
+
+  margin: 0 0 10px 0;
 }
 
 .button-container__btn {
   display: block;
 
-  width: 100%;
+  width: 200px;
   height: 65px;
+
+  margin: 0 auto;
 
   padding: 0;
 
@@ -14,6 +18,8 @@
   border-radius: 10px;
 
   background-color: transparent;
+
+  font-size: 40px;
 }
 
 .button-container__btn:disabled {
@@ -32,7 +38,27 @@
   border-color: green;
   background-color: green;
 
-  color: green;
+  color: white;
 
   opacity: 1 !important;
+}
+
+@media (max-width: 1050px) {
+  .button-container {
+    width: calc(100% / 4);
+  } 
+}
+
+@media (max-width: 890px) {
+  .button-container__btn {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+@media (max-width: 340px) {
+  .button-container__btn {
+    width: 55px;
+    height: 55px;
+  }
 }

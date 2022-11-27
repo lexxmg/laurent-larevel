@@ -16,6 +16,7 @@ class CreateOutsTable extends Migration
         Schema::create('outs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->foreignId('icon_id')->constrained();
             $table->foreignId('gpio_id')->constrained();
             $table->foreignId('mode_id')->constrained();
             $table->boolean('revers')->default(false);

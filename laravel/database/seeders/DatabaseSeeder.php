@@ -154,9 +154,29 @@ class DatabaseSeeder extends Seeder
             ]
         ]);
 
+        \App\Models\Icon::insert([
+            [
+                'name' => null,
+                'description' => 'Нет изображения'
+            ],
+            [
+                'name' => 'icon-tv',
+                'description' => 'Телевизор'
+            ],
+            [
+                'name' => 'icon-lamp',
+                'description' => 'Настольная лампа'
+            ],
+            [
+                'name' => 'icon-desklamp',
+                'description' => 'Настольная лампа'
+            ]
+        ]);
+
         \App\Models\Out::insert([
             [
                 'name' => '1',
+                'icon_id' => 1,
                 'gpio_id' => 1,
                 'mode_id' => 1,
                 'revers' => false,
@@ -164,6 +184,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => '2',
+                'icon_id' => 1,
                 'gpio_id' => 2,
                 'mode_id' => 1,
                 'revers' => false,
@@ -171,6 +192,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => '3',
+                'icon_id' => 2,
                 'gpio_id' => 3,
                 'mode_id' => 1,
                 'revers' => false,
@@ -178,6 +200,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => '4',
+                'icon_id' => 3,
                 'gpio_id' => 4,
                 'mode_id' => 1,
                 'revers' => false,
@@ -185,6 +208,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => '5',
+                'icon_id' => 1,
                 'gpio_id' => 5,
                 'mode_id' => 2,
                 'revers' => false,
@@ -192,6 +216,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => '6',
+                'icon_id' => 1,
                 'gpio_id' => 6,
                 'mode_id' => 1,
                 'revers' => false,
@@ -199,6 +224,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => '7',
+                'icon_id' => 4,
                 'gpio_id' => 7,
                 'mode_id' => 1,
                 'revers' => false,
@@ -206,6 +232,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => '8',
+                'icon_id' => 1,
                 'gpio_id' => 8,
                 'mode_id' => 1,
                 'revers' => false,
@@ -213,6 +240,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'цветы',
+                'icon_id' => 1,
                 'gpio_id' => 9,
                 'mode_id' => 1,
                 'revers' => false,
@@ -220,6 +248,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'релле-2',
+                'icon_id' => 1,
                 'gpio_id' => 14,
                 'mode_id' => 1,
                 'revers' => false,
@@ -227,6 +256,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'laurent 2 релле-2',
+                'icon_id' => 1,
                 'gpio_id' => 14,
                 'mode_id' => 1,
                 'revers' => false,
@@ -234,6 +264,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'laurent 2 out-2',
+                'icon_id' => 1,
                 'gpio_id' => 2,
                 'mode_id' => 2,
                 'revers' => false,

@@ -6,6 +6,8 @@ const container = document.querySelector('.main-home__button-container-js'),
       allBtn = document.querySelectorAll('.button-container__btn-js'),
       icons = document.querySelector('.icon-container-js');
 
+getStatus();      
+
 container.addEventListener('click', event => {
   const id = event.target.id;
 
@@ -21,43 +23,26 @@ container.addEventListener('click', event => {
       .then(data => {
         
         if (data.stat) {
-          event.target.classList.add('button-container__btn--active');
+          if (+event.target.dataset.revers) {
+            event.target.classList.remove('button-container__btn--active');
+          } else {
+            event.target.classList.add('button-container__btn--active');
+          }
           event.target.disabled = false;
         } else {
-          event.target.classList.remove('button-container__btn--active');
+          if (+event.target.dataset.revers) {
+            event.target.classList.add('button-container__btn--active');
+          } else {
+            event.target.classList.remove('button-container__btn--active');
+          }
+          
           event.target.disabled = false;
         }
       });
   }
 });
 
-setInterval(() => {
-  fetch('/all-status').then(res => res.json()).then(data => {
-    allBtn.forEach((item, i) => {
-      if (item.disabled) return;
-
-      if (item.dataset.type === 'out') {
-        const outStatArr = data[item.dataset.laurentId].stat.out_table0.split('');
-
-        if ( +outStatArr[item.dataset.stat - 1] ) {
-          item.classList.add('button-container__btn--active');
-        } else {
-          item.classList.remove('button-container__btn--active');
-        }
-      }
-
-      if (item.dataset.type === 'relle') {
-        const outStatArr = data[item.dataset.laurentId].stat.rele_table0.split('');
-
-        if ( +outStatArr[item.dataset.stat - 1] ) {
-          item.classList.add('button-container__btn--active');
-        } else {
-          item.classList.remove('button-container__btn--active');
-        }
-      }
-    });
-  });
-}, 1000);
+setInterval(getStatus, 1000);
 
 // setInterval(async () => {
 //   const res = await fetch('/all-status');
@@ -65,10 +50,53 @@ setInterval(() => {
 // 
 //   console.log(data[1].stat);
 // }, 10000);icon-container--hidden''
-icons.addEventListener('click', function(event) {
+icons.addEventListener('click', async function(event) {
   const target = event.target;
   const icon = target.className;
 
+  const res = await fetch('/add-icon?icon=' + icon);
+  const data = await res.json();
+
   this.classList.add('icon-container--hidden');
-  console.log(icon);
+  console.log(data);
 });
+
+
+function addClass(stat, item, rev = '0') {
+  const statI = +stat;
+  const revI = +rev;
+
+  if (revI) {
+    if ( !statI ) {
+      item.classList.add('button-container__btn--active');
+    } else {
+      item.classList.remove('button-container__btn--active');
+    }
+  } else {
+    if ( statI ) {
+      item.classList.add('button-container__btn--active');
+    } else {
+      item.classList.remove('button-container__btn--active');
+    }
+  }
+}
+
+function getStatus() {
+  fetch('/all-status').then(res => res.json()).then(data => {
+    allBtn.forEach((item, i) => {
+      if (item.disabled) return;
+
+      if (item.dataset.type === 'out') {
+        const outStatArr = data[item.dataset.laurentId].stat.out_table0.split('');
+
+        addClass(outStatArr[item.dataset.stat - 1], item, item.dataset.revers);
+      }
+
+      if (item.dataset.type === 'relle') {
+        const outStatArr = data[item.dataset.laurentId].stat.rele_table0.split('');
+
+        addClass(outStatArr[item.dataset.stat - 1], item, item.dataset.revers);
+      }
+    });
+  });
+}
