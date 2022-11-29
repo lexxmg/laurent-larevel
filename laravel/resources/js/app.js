@@ -6,7 +6,7 @@ const container = document.querySelector('.main-home__button-container-js'),
       allBtn = document.querySelectorAll('.button-container__btn-js'),
       icons = document.querySelector('.icon-container-js');
 
-getStatus();      
+getStatus().then(data => console.log(data));      
 
 container.addEventListener('click', event => {
   const id = event.target.id;
@@ -21,13 +21,13 @@ container.addEventListener('click', event => {
     fetch(`/out?id=${id}`)
       .then(res => res.json())
       .then(data => {
-        
         if (data.stat) {
           if (+event.target.dataset.revers) {
             event.target.classList.remove('button-container__btn--active');
           } else {
             event.target.classList.add('button-container__btn--active');
           }
+
           event.target.disabled = false;
         } else {
           if (+event.target.dataset.revers) {
@@ -82,7 +82,7 @@ function addClass(stat, item, rev = '0') {
 }
 
 function getStatus() {
-  fetch('/all-status').then(res => res.json()).then(data => {
+  return fetch('/all-status').then(res => res.json()).then(data => {
     allBtn.forEach((item, i) => {
       if (item.disabled) return;
 
@@ -97,6 +97,25 @@ function getStatus() {
 
         addClass(outStatArr[item.dataset.stat - 1], item, item.dataset.revers);
       }
+
+      if (item.dataset.type === 'virt') {
+        const outStatArr = data[item.dataset.laurentId].stat.in_table0.split('');
+       
+        addClass(outStatArr[item.dataset.stat - 1], item, item.dataset.revers);
+      }
+
+      if (item.dataset.type === 'temp') {
+        let temp = data[item.dataset.laurentId].stat.temper0;
+        const width = item.offsetWidth;
+       
+        if (width < 200) {
+          temp = Math.round(temp);
+        }
+
+        item.textContent = temp;
+      }
     });
+
+    return data;
   });
 }

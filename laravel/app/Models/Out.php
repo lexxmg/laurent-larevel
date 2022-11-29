@@ -14,8 +14,12 @@ class Out extends Model
         'icon_id',
         'gpio_id',
         'mode_id',
+        'virt_on',
+        'virt_off',
+        'virt_type',
         'revers',
-        'laurent_id'
+        'laurent_id',
+        'confirm'
     ];
 
     public function laurent()

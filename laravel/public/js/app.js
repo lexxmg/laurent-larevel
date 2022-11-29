@@ -19576,7 +19576,9 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 var container = document.querySelector('.main-home__button-container-js'),
   allBtn = document.querySelectorAll('.button-container__btn-js'),
   icons = document.querySelector('.icon-container-js');
-getStatus();
+getStatus().then(function (data) {
+  return console.log(data);
+});
 container.addEventListener('click', function (event) {
   var id = event.target.id;
   if (id) {
@@ -19662,7 +19664,7 @@ function addClass(stat, item) {
   }
 }
 function getStatus() {
-  fetch('/all-status').then(function (res) {
+  return fetch('/all-status').then(function (res) {
     return res.json();
   }).then(function (data) {
     allBtn.forEach(function (item, i) {
@@ -19675,7 +19677,20 @@ function getStatus() {
         var _outStatArr = data[item.dataset.laurentId].stat.rele_table0.split('');
         addClass(_outStatArr[item.dataset.stat - 1], item, item.dataset.revers);
       }
+      if (item.dataset.type === 'virt') {
+        var _outStatArr2 = data[item.dataset.laurentId].stat.in_table0.split('');
+        addClass(_outStatArr2[item.dataset.stat - 1], item, item.dataset.revers);
+      }
+      if (item.dataset.type === 'temp') {
+        var temp = data[item.dataset.laurentId].stat.temper0;
+        var width = item.offsetWidth;
+        if (width < 200) {
+          temp = Math.round(temp);
+        }
+        item.textContent = temp;
+      }
     });
+    return data;
   });
 }
 })();

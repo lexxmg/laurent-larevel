@@ -20,6 +20,10 @@ class LaurentController extends Controller
         $mode = $modelOut->mode->name;
         $host = $modelOut->laurent->host;
         
+        if ($mode === null) {
+            return ['success' => 'ok'];
+        }
+
         if ($mode === 'toggle') {
             return Laurent::toggleOut($host, $type, $out);
         }

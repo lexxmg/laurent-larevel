@@ -32,6 +32,10 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\Mode::insert([
             [
+                'name' => null,
+                'description' => 'Пустой'
+            ],
+            [
                 'name' => 'toggle',
                 'description' => 'Переключатель'
             ],
@@ -151,6 +155,21 @@ class DatabaseSeeder extends Seeder
                 'out' => 6,
                 'type' => 'virt',
                 'description' => $virtDescription
+            ],
+            [
+                'out' => 1,
+                'type' => 'temp',
+                'description' => 'Темпиратура'
+            ],
+            [
+                'out' => 1,
+                'type' => 'abc1',
+                'description' => 'АЦП-1'
+            ],
+            [
+                'out' => 1,
+                'type' => 'abc2',
+                'description' => 'АЦП-2'
             ]
         ]);
 
@@ -178,7 +197,7 @@ class DatabaseSeeder extends Seeder
                 'name' => '1',
                 'icon_id' => 1,
                 'gpio_id' => 1,
-                'mode_id' => 1,
+                'mode_id' => 2,
                 'revers' => false,
                 'laurent_id' => 1
             ],
@@ -186,7 +205,7 @@ class DatabaseSeeder extends Seeder
                 'name' => '2',
                 'icon_id' => 1,
                 'gpio_id' => 2,
-                'mode_id' => 1,
+                'mode_id' => 2,
                 'revers' => false,
                 'laurent_id' => 1
             ],
@@ -194,7 +213,7 @@ class DatabaseSeeder extends Seeder
                 'name' => '3',
                 'icon_id' => 2,
                 'gpio_id' => 3,
-                'mode_id' => 1,
+                'mode_id' => 2,
                 'revers' => false,
                 'laurent_id' => 1
             ],
@@ -202,7 +221,7 @@ class DatabaseSeeder extends Seeder
                 'name' => '4',
                 'icon_id' => 3,
                 'gpio_id' => 4,
-                'mode_id' => 1,
+                'mode_id' => 2,
                 'revers' => false,
                 'laurent_id' => 1
             ],
@@ -210,7 +229,7 @@ class DatabaseSeeder extends Seeder
                 'name' => '5',
                 'icon_id' => 1,
                 'gpio_id' => 5,
-                'mode_id' => 2,
+                'mode_id' => 3,
                 'revers' => false,
                 'laurent_id' => 1
             ],
@@ -218,7 +237,7 @@ class DatabaseSeeder extends Seeder
                 'name' => '6',
                 'icon_id' => 1,
                 'gpio_id' => 6,
-                'mode_id' => 1,
+                'mode_id' => 2,
                 'revers' => false,
                 'laurent_id' => 1
             ],
@@ -226,7 +245,7 @@ class DatabaseSeeder extends Seeder
                 'name' => '7',
                 'icon_id' => 4,
                 'gpio_id' => 7,
-                'mode_id' => 1,
+                'mode_id' => 2,
                 'revers' => false,
                 'laurent_id' => 1
             ],
@@ -234,7 +253,7 @@ class DatabaseSeeder extends Seeder
                 'name' => '8',
                 'icon_id' => 1,
                 'gpio_id' => 8,
-                'mode_id' => 1,
+                'mode_id' => 2,
                 'revers' => false,
                 'laurent_id' => 1
             ],
@@ -242,7 +261,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'цветы',
                 'icon_id' => 1,
                 'gpio_id' => 9,
-                'mode_id' => 1,
+                'mode_id' => 2,
                 'revers' => false,
                 'laurent_id' => 1
             ],
@@ -250,7 +269,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'релле-2',
                 'icon_id' => 1,
                 'gpio_id' => 14,
-                'mode_id' => 1,
+                'mode_id' => 2,
                 'revers' => false,
                 'laurent_id' => 1
             ],
@@ -258,7 +277,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'laurent 2 релле-2',
                 'icon_id' => 1,
                 'gpio_id' => 14,
-                'mode_id' => 1,
+                'mode_id' => 2,
                 'revers' => false,
                 'laurent_id' => 2
             ],
