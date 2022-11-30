@@ -91,6 +91,37 @@ class Laurent
         return simplexml_load_string($res);
     }
 
+    /**
+    * Включает с обратной связью
+    * outVirt('http://192.168.0.101', $out, $virt_type, $virt_on, $virt_off);
+    * релле-1 включает релле-2 выключает
+    * outVirt('http://192.168.0.101', 1, relle, 1, 2);
+    * релле-1 и включает и выключает
+    * outVirt('http://192.168.0.101', 1, relle, 1);
+    */
+    public static function outVirt(string $url, string $out, string $typeVirt = 'out', int $outOn, int $outOff = null)
+    {
+        $statIn = self::getStatusIn($url, $out);
+
+        if ($outOff) {
+            if (!$statIn) {
+                self::runOut($url, $typeVirt, $outOn, 'on');
+                usleep(500000);
+                self::runOut($url, $typeVirt, $outOn, 'off');
+            } else {
+                self::runOut($url, $typeVirt, $outOff, 'on');
+                usleep(500000);
+                self::runOut($url, $typeVirt, $outOff, 'off');
+            }
+        } else {
+            self::runOut($url, $typeVirt, $outOn, 'on');
+            usleep(500000);
+            self::runOut($url, $typeVirt, $outOn, 'off');
+        }
+
+        return ['out' => $out, 'stat' => $statIn];
+    }
+
     public static function getStatusOut(string $url, int $out): bool
     {
         $result = self::allStatusObj($url);
@@ -103,6 +134,13 @@ class Laurent
         $result = self::allStatusObj($url);
 		   
         return (bool) mb_substr($result->rele_table0, $out - 1, 1);
+    }
+
+    public static function getStatusIn(string $url, int $out): bool
+    {
+        $result = self::allStatusObj($url);
+		   
+        return (bool) mb_substr($result->in_table0, $out - 1, 1);
     }
 
     /**

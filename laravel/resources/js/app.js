@@ -11,6 +11,10 @@ getStatus().then(data => console.log(data));
 container.addEventListener('click', event => {
   const id = event.target.id;
 
+  if (event.target.dataset.mode === '') {
+    return false;
+  };
+
   if (id) {
     event.target.disabled = true;
 
@@ -113,6 +117,28 @@ function getStatus() {
         }
 
         item.textContent = temp;
+      }
+
+      if (item.dataset.type === 'abc1') {
+        let abc = data[item.dataset.laurentId].stat.adc0;
+        const width = item.offsetWidth;
+    
+        if (width < 200) {
+          abc = Math.round(abc);
+        }
+
+        item.textContent = abc;
+      }
+
+      if (item.dataset.type === 'abc2') {
+        let abc = data[item.dataset.laurentId].stat.adc1;
+        const width = item.offsetWidth;
+       
+        if (width < 200) {
+          abc = Math.round(abc);
+        }
+
+        item.textContent = abc;
       }
     });
 

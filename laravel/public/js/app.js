@@ -19581,6 +19581,10 @@ getStatus().then(function (data) {
 });
 container.addEventListener('click', function (event) {
   var id = event.target.id;
+  if (event.target.dataset.mode === '') {
+    return false;
+  }
+  ;
   if (id) {
     event.target.disabled = true;
     if (event.target.dataset.mode === 'timer') {
@@ -19688,6 +19692,22 @@ function getStatus() {
           temp = Math.round(temp);
         }
         item.textContent = temp;
+      }
+      if (item.dataset.type === 'abc1') {
+        var abc = data[item.dataset.laurentId].stat.adc0;
+        var _width = item.offsetWidth;
+        if (_width < 200) {
+          abc = Math.round(abc);
+        }
+        item.textContent = abc;
+      }
+      if (item.dataset.type === 'abc2') {
+        var _abc = data[item.dataset.laurentId].stat.adc1;
+        var _width2 = item.offsetWidth;
+        if (_width2 < 200) {
+          _abc = Math.round(_abc);
+        }
+        item.textContent = _abc;
       }
     });
     return data;

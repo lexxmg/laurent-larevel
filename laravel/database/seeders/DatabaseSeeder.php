@@ -42,6 +42,10 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'timer',
                 'description' => 'Включить на время'
+            ],
+            [
+                'name' => 'virt',
+                'description' => 'Кнопка с обратной связью'
             ]
         ]);
 
@@ -289,6 +293,24 @@ class DatabaseSeeder extends Seeder
                 'revers' => false,
                 'laurent_id' => 2
             ]
+        ]);
+
+        \App\Models\Out::insert([
+            'name' => 'Темпиратура',
+            'gpio_id' => 23,
+            'laurent_id' => 1
+        ]);
+
+        \App\Models\Out::insert([
+            'name' => 'кнопка с обратной связью',
+            'icon_id' => 1,
+            'gpio_id' => 17,
+            'mode_id' => 4,
+            'virt_on' => 2,
+            'virt_off' => 3,  // номер выхода или NULL
+            'virt_type' => 'relle', // relle snd out
+            'revers' => false,
+            'laurent_id' => 1
         ]);
     }
 }

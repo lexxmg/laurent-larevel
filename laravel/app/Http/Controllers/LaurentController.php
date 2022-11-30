@@ -19,6 +19,10 @@ class LaurentController extends Controller
         $out = (int) $modelOut->gpio->out;
         $mode = $modelOut->mode->name;
         $host = $modelOut->laurent->host;
+
+        $virt_type = $modelOut->virt_type;
+        $virt_off = $modelOut->virt_off;
+        $virt_on = $modelOut->virt_on;
         
         if ($mode === null) {
             return ['success' => 'ok'];
@@ -30,6 +34,10 @@ class LaurentController extends Controller
 
         if ($mode === 'timer') {
             return Laurent::outTimer($host, $type, $out);
+        }
+
+        if ($mode === 'virt') {
+            return Laurent::outVirt($host, $out, $virt_type, $virt_on, $virt_off);
         }
     }
 
