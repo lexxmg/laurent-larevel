@@ -22,6 +22,11 @@ class Out extends Model
         'confirm'
     ];
 
+    public function user()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
     public function laurent()
     {
         return $this->belongsTo(Laurent::class);

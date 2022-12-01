@@ -18,3 +18,5 @@ Route::get('/out', [\App\Http\Controllers\LaurentController::class, 'out'])->nam
 Route::get('/status/{id}', [\App\Http\Controllers\LaurentController::class, 'status'])->name('laurent-status');
 Route::get('/all-status', [\App\Http\Controllers\LaurentController::class, 'allStatus'])->name('laurent-all-status');
 Route::get('/add-icon', [\App\Http\Controllers\IconController::class, 'addIcon'])->name('add-icon');
+Route::get('/get-out', [\App\Http\Controllers\OutController::class, 'getOutUser'])->name('get-out');
+Route::get('/add-out', [\App\Http\Controllers\OutController::class, 'addOuts'])->name('add-out');

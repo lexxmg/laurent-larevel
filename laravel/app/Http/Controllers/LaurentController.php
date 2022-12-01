@@ -12,9 +12,25 @@ class LaurentController extends Controller
 {
     public function out(Request $request)
     {
+        $success = false;
+        $currentUserId = 1;
         $id = $request->id;
-        $modelOut = Out::find($id);
 
+        $outsUser = Out::find($id)->user; // пользователи которым принадлежит кнопка
+
+        foreach ($outsUser as $key => $value) {
+            if ($value->id === $currentUserId) {
+                $success = true;
+                break;
+            }
+        }
+
+        if (!$success) {
+            return ['error' => 'нет доступа'];
+        }
+        
+        $modelOut = Out::find($id);
+        
         $type = $modelOut->gpio->type;
         $out = (int) $modelOut->gpio->out;
         $mode = $modelOut->mode->name;

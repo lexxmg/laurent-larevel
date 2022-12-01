@@ -20,6 +20,11 @@ cd example-app
 /Applications/XAMPP/bin/php artisan storage:link
 
 /**
+* Создание миграции
+*/
+/Applications/XAMPP/bin/php artisan make:migration create_flights_table
+
+/**
 * Создание модели, миграции и фабрики Post
 * имя указывается в единственном числе!
 * и в кемалкейс например (AdminUser)
