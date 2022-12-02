@@ -20,3 +20,9 @@ Route::get('/all-status', [\App\Http\Controllers\LaurentController::class, 'allS
 Route::get('/add-icon', [\App\Http\Controllers\IconController::class, 'addIcon'])->name('add-icon');
 Route::get('/get-out', [\App\Http\Controllers\OutController::class, 'getOutUser'])->name('get-out');
 Route::get('/add-out', [\App\Http\Controllers\OutController::class, 'addOuts'])->name('add-out');
+
+Route::get('/register', [\App\Http\Controllers\AuthController::class, 'showRegisterForm'])->name('register');
+Route::post('/register-process', [\App\Http\Controllers\AuthController::class, 'register'])->name('register-process');
+
+Route::get('/login', [\App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login-process', [\App\Http\Controllers\AuthController::class, 'login'])->name('login-process');

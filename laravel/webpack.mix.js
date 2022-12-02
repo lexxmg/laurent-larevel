@@ -16,6 +16,8 @@ const mix = require('laravel-mix');
     'master.css',
     'icon.css',
     'button.css',
+    'login.css',
+    'register.css',
     'home.css'
   ];
   

@@ -5,7 +5,7 @@
 @section('content')
   <main class="main-home">
     <div class="main-home__container">
-        <h1>Главная</h1>
+        <h1>Авторизованный пользователь</h1>
         
         <div class="main-home__button-container main-home__button-container-js">
           @foreach ($arr as $item)

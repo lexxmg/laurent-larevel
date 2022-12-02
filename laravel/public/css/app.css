@@ -527,6 +527,48 @@ h1, h2, h3, p, figure {
   }
 }
 
+.login-container {
+
+}
+
+.login-container__form {
+
+}
+
+.login-container__input-container {
+
+}
+
+.login-container__title {
+
+}
+
+.login-container__input {
+
+}
+
+
+.register-container {
+
+}
+
+.register-container__form {
+
+}
+
+.register-container__input-container {
+
+}
+
+.register-container__title {
+
+}
+
+.register-container__input {
+
+}
+
+
 .main-home {
   padding: 20px;
 }
