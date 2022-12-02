@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Laurent\Laurent;
 use App\Models\Out;
-use App\Models\Laurent as laur;
-use PhpParser\Node\Stmt\Foreach_;
+use App\Models\Laurent as laurentModel;
 
 class LaurentController extends Controller
 {
@@ -26,7 +25,12 @@ class LaurentController extends Controller
         }
 
         if (!$success) {
-            return ['error' => 'нет доступа'];
+            $header = [
+                'Content-Type' => 'application/json; charset=UTF-8',
+                'charset' => 'utf-8'
+            ];
+
+            return response()->json(['error' => 'нет доступа'], 403, $header, JSON_UNESCAPED_UNICODE);
         }
         
         $modelOut = Out::find($id);
@@ -68,7 +72,7 @@ class LaurentController extends Controller
 
     public function allStatus(Request $request)
     {
-        $modelLaurent = laur::all();
+        $modelLaurent = laurentModel::all();
         //Laurent::allStatus($modelLaurent);
         //echo ini_get('default_socket_timeout');
         return Laurent::allStatus($modelLaurent);
