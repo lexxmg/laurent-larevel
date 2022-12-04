@@ -6,7 +6,7 @@
     <div class="register-container">
       <form  class="register-container__form" action="{{ route('register-process') }}" method="POST">
         @csrf
-        <input type="hidden" value={{ $token }} name="token">
+        <input type="hidden" value="{{ $token }}" name="token">
       
         <div class="register-container__input-container 
           @error('name') register-container__input-container--error @enderror"
