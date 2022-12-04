@@ -5,7 +5,9 @@
 @section('content')
   <main class="main-home">
     <div class="main-home__container">
-        <h1>Авторизованный пользователь</h1>
+      @auth
+        <h1>Авторизованный пользователь {{ auth()->user()->name }}</h1>
+      
         
         <div class="main-home__button-container main-home__button-container-js">
           @foreach ($arr as $item)
@@ -25,6 +27,11 @@
         </div>
 
         @include('partials.icon')
+      @endauth
+
+      @guest
+          <h1>Вы не авторизованы</h1>
+      @endguest
     </div>
   </main>
 @endsection

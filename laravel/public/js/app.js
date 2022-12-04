@@ -19573,145 +19573,147 @@ function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyri
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-var container = document.querySelector('.main-home__button-container-js'),
-  allBtn = document.querySelectorAll('.button-container__btn-js'),
-  icons = document.querySelector('.icon-container-js');
-getStatus().then(function (data) {
-  return console.log(data);
-});
-container.addEventListener('click', function (event) {
-  var id = event.target.id;
-  if (event.target.dataset.mode === '') {
-    return false;
-  }
-  ;
-  if (id) {
-    event.target.disabled = true;
-    if (event.target.dataset.mode === 'timer') {
-      event.target.classList.add('button-container__btn--active');
+if (document.querySelector('.main-home__button-container-js')) {
+  var addClass = function addClass(stat, item) {
+    var rev = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '0';
+    var statI = +stat;
+    var revI = +rev;
+    if (revI) {
+      if (!statI) {
+        item.classList.add('button-container__btn--active');
+      } else {
+        item.classList.remove('button-container__btn--active');
+      }
+    } else {
+      if (statI) {
+        item.classList.add('button-container__btn--active');
+      } else {
+        item.classList.remove('button-container__btn--active');
+      }
     }
-    fetch("/out?id=".concat(id)).then(function (res) {
+  };
+  var getStatus = function getStatus() {
+    return fetch('/all-status').then(function (res) {
       return res.json();
     }).then(function (data) {
-      if (data.stat) {
-        if (+event.target.dataset.revers) {
-          event.target.classList.remove('button-container__btn--active');
-        } else {
-          event.target.classList.add('button-container__btn--active');
+      allBtn.forEach(function (item, i) {
+        if (item.disabled) return;
+        if (item.dataset.type === 'out') {
+          var outStatArr = data[item.dataset.laurentId].stat.out_table0.split('');
+          addClass(outStatArr[item.dataset.stat - 1], item, item.dataset.revers);
         }
-        event.target.disabled = false;
-      } else {
-        if (+event.target.dataset.revers) {
-          event.target.classList.add('button-container__btn--active');
-        } else {
-          event.target.classList.remove('button-container__btn--active');
+        if (item.dataset.type === 'relle') {
+          var _outStatArr = data[item.dataset.laurentId].stat.rele_table0.split('');
+          addClass(_outStatArr[item.dataset.stat - 1], item, item.dataset.revers);
         }
-        event.target.disabled = false;
-      }
+        if (item.dataset.type === 'virt') {
+          var _outStatArr2 = data[item.dataset.laurentId].stat.in_table0.split('');
+          addClass(_outStatArr2[item.dataset.stat - 1], item, item.dataset.revers);
+        }
+        if (item.dataset.type === 'temp') {
+          var temp = data[item.dataset.laurentId].stat.temper0;
+          var width = item.offsetWidth;
+          if (width < 200) {
+            temp = Math.round(temp);
+          }
+          item.textContent = temp;
+        }
+        if (item.dataset.type === 'abc1') {
+          var abc = data[item.dataset.laurentId].stat.adc0;
+          var _width = item.offsetWidth;
+          if (_width < 200) {
+            abc = Math.round(abc);
+          }
+          item.textContent = abc;
+        }
+        if (item.dataset.type === 'abc2') {
+          var _abc = data[item.dataset.laurentId].stat.adc1;
+          var _width2 = item.offsetWidth;
+          if (_width2 < 200) {
+            _abc = Math.round(_abc);
+          }
+          item.textContent = _abc;
+        }
+      });
+      return data;
     });
-  }
-});
-setInterval(getStatus, 1000);
-
-// setInterval(async () => {
-//   const res = await fetch('/all-status');
-//   const data = await res.json();
-// 
-//   console.log(data[1].stat);
-// }, 10000);icon-container--hidden''
-icons.addEventListener('click', /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(event) {
-    var target, icon, res, data;
-    return _regeneratorRuntime().wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            target = event.target;
-            icon = target.className;
-            _context.next = 4;
-            return fetch('/add-icon?icon=' + icon);
-          case 4:
-            res = _context.sent;
-            _context.next = 7;
-            return res.json();
-          case 7:
-            data = _context.sent;
-            this.classList.add('icon-container--hidden');
-            console.log(data);
-          case 10:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee, this);
-  }));
-  return function (_x) {
-    return _ref.apply(this, arguments);
   };
-}());
-function addClass(stat, item) {
-  var rev = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '0';
-  var statI = +stat;
-  var revI = +rev;
-  if (revI) {
-    if (!statI) {
-      item.classList.add('button-container__btn--active');
-    } else {
-      item.classList.remove('button-container__btn--active');
-    }
-  } else {
-    if (statI) {
-      item.classList.add('button-container__btn--active');
-    } else {
-      item.classList.remove('button-container__btn--active');
-    }
-  }
-}
-function getStatus() {
-  return fetch('/all-status').then(function (res) {
-    return res.json();
-  }).then(function (data) {
-    allBtn.forEach(function (item, i) {
-      if (item.disabled) return;
-      if (item.dataset.type === 'out') {
-        var outStatArr = data[item.dataset.laurentId].stat.out_table0.split('');
-        addClass(outStatArr[item.dataset.stat - 1], item, item.dataset.revers);
-      }
-      if (item.dataset.type === 'relle') {
-        var _outStatArr = data[item.dataset.laurentId].stat.rele_table0.split('');
-        addClass(_outStatArr[item.dataset.stat - 1], item, item.dataset.revers);
-      }
-      if (item.dataset.type === 'virt') {
-        var _outStatArr2 = data[item.dataset.laurentId].stat.in_table0.split('');
-        addClass(_outStatArr2[item.dataset.stat - 1], item, item.dataset.revers);
-      }
-      if (item.dataset.type === 'temp') {
-        var temp = data[item.dataset.laurentId].stat.temper0;
-        var width = item.offsetWidth;
-        if (width < 200) {
-          temp = Math.round(temp);
-        }
-        item.textContent = temp;
-      }
-      if (item.dataset.type === 'abc1') {
-        var abc = data[item.dataset.laurentId].stat.adc0;
-        var _width = item.offsetWidth;
-        if (_width < 200) {
-          abc = Math.round(abc);
-        }
-        item.textContent = abc;
-      }
-      if (item.dataset.type === 'abc2') {
-        var _abc = data[item.dataset.laurentId].stat.adc1;
-        var _width2 = item.offsetWidth;
-        if (_width2 < 200) {
-          _abc = Math.round(_abc);
-        }
-        item.textContent = _abc;
-      }
-    });
-    return data;
+  var container = document.querySelector('.main-home__button-container-js'),
+    allBtn = document.querySelectorAll('.button-container__btn-js'),
+    icons = document.querySelector('.icon-container-js');
+  getStatus().then(function (data) {
+    return console.log(data);
   });
+  container.addEventListener('click', function (event) {
+    var id = event.target.id;
+    if (event.target.dataset.mode === '') {
+      return false;
+    }
+    ;
+    if (id) {
+      event.target.disabled = true;
+      if (event.target.dataset.mode === 'timer') {
+        event.target.classList.add('button-container__btn--active');
+      }
+      fetch("/out?id=".concat(id)).then(function (res) {
+        return res.json();
+      }).then(function (data) {
+        if (data.stat) {
+          if (+event.target.dataset.revers) {
+            event.target.classList.remove('button-container__btn--active');
+          } else {
+            event.target.classList.add('button-container__btn--active');
+          }
+          event.target.disabled = false;
+        } else {
+          if (+event.target.dataset.revers) {
+            event.target.classList.add('button-container__btn--active');
+          } else {
+            event.target.classList.remove('button-container__btn--active');
+          }
+          event.target.disabled = false;
+        }
+      });
+    }
+  });
+  setInterval(getStatus, 1000);
+
+  // setInterval(async () => {
+  //   const res = await fetch('/all-status');
+  //   const data = await res.json();
+  // 
+  //   console.log(data[1].stat);
+  // }, 10000);icon-container--hidden''
+  icons.addEventListener('click', /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(event) {
+      var target, icon, res, data;
+      return _regeneratorRuntime().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              target = event.target;
+              icon = target.className;
+              _context.next = 4;
+              return fetch('/add-icon?icon=' + icon);
+            case 4:
+              res = _context.sent;
+              _context.next = 7;
+              return res.json();
+            case 7:
+              data = _context.sent;
+              this.classList.add('icon-container--hidden');
+              console.log(data);
+            case 10:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this);
+    }));
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }());
 }
 })();
 
