@@ -19,11 +19,7 @@
             id="register-name" 
             type="text" 
             name="name"
-            @if (@old('name'))
-              value="{{ @old('name') }}"
-            @else
-                value="{{ $name }}"
-            @endif
+            value="{{ @old('name', $name) }}"
           >
         </div>
 
@@ -38,11 +34,7 @@
             id="device_name" 
             type="text" 
             name="device_name"
-            @if (@old('device_name'))
-              value="{{ @old('device_name') }}"
-            @else
-                value="{{ $device_name }}"
-            @endif
+            value="{{ @old('device_name', $device_name) }}"
           >
         </div>
 

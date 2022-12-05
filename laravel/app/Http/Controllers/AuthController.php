@@ -10,9 +10,9 @@ use App\Models\Token;
 
 class AuthController extends Controller
 {
-    public function showRegisterForm(Request $request)
+    public function showRegisterForm($token)
     {
-        $token = $request->query('token');
+        //$token = $request->query('token');
 
         $token = Token::where('token', $token)->first();
 
@@ -51,6 +51,10 @@ class AuthController extends Controller
             $user->out()->attach($outs); // вставка выходов
 
             Auth::guard('web')->loginUsingId($user->id, true);
+
+            $token->delete();
+
+            return redirect()->route('home');
         }
 
         return back()->withInput();

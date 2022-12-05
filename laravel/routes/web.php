@@ -21,8 +21,11 @@ Route::get('/add-icon', [\App\Http\Controllers\IconController::class, 'addIcon']
 Route::get('/get-out', [\App\Http\Controllers\OutController::class, 'getOutUser'])->name('get-out');
 Route::get('/add-out', [\App\Http\Controllers\OutController::class, 'addOuts'])->name('add-out');
 
-Route::get('/register', [\App\Http\Controllers\AuthController::class, 'showRegisterForm'])->name('register');
+Route::get('/register/{token}', [\App\Http\Controllers\AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/register-process', [\App\Http\Controllers\AuthController::class, 'register'])->name('register-process');
+
+Route::get('/new-user-link', [\App\Http\Controllers\RegistrationLinkController::class, 'newUserLink'])->name('new-user-link');
+Route::post('/new-user-link', [\App\Http\Controllers\RegistrationLinkController::class, 'processNewUserLink'])->name('process-new-user-link');
 
 Route::get('/login', [\App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login-process', [\App\Http\Controllers\AuthController::class, 'login'])->name('login-process');
