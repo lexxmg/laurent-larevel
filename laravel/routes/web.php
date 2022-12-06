@@ -24,8 +24,9 @@ Route::get('/add-out', [\App\Http\Controllers\OutController::class, 'addOuts'])-
 Route::get('/register/{token}', [\App\Http\Controllers\AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/register-process', [\App\Http\Controllers\AuthController::class, 'register'])->name('register-process');
 
-Route::get('/new-user-link', [\App\Http\Controllers\RegistrationLinkController::class, 'newUserLink'])->name('new-user-link');
-Route::post('/new-user-link', [\App\Http\Controllers\RegistrationLinkController::class, 'processNewUserLink'])->name('process-new-user-link');
+Route::get('/new-user-link', [\App\Http\Controllers\RegistrationLinkController::class, 'newUserLink'])->name('token.create');
+Route::post('/new-user-link', [\App\Http\Controllers\RegistrationLinkController::class, 'processNewUserLink'])->name('token.create.process');
+Route::get('/show-link', [\App\Http\Controllers\RegistrationLinkController::class, 'showToken'])->name('token.show');
 
 Route::get('/login', [\App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login-process', [\App\Http\Controllers\AuthController::class, 'login'])->name('login-process');

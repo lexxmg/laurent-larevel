@@ -14,7 +14,7 @@ class RegistrationLinkController extends Controller
         //echo $request->token;
         $outs = Out::all();
 
-        return view('registration-link', ['link' => 'link', 'outs' => $outs]);
+        return view('token.create', ['outs' => $outs]);
     }
 
     public function processNewUserLink(Request $request)
@@ -28,7 +28,12 @@ class RegistrationLinkController extends Controller
             'outs' => $outsStr
         ]);
 
-        return view('registration-link', ['link' => url("register/$token"), 'outs' => []]);
-        //return redirect()->route('new-user-link', $token);
+        //return view('token.show', ['link' => url("register/$token")]);
+        return redirect()->route('token.show', ['token' => $token]);
+    }
+
+    public function showToken(Request $request)
+    {
+        return view('token.show', ['link' => url("register/$request->token")]);
     }
 }

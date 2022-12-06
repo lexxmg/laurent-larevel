@@ -38,7 +38,7 @@
           >
         </div>
 
-        <button>test</button>
+        <button>Войти</button>
       </form>
     </div>
 @endsection
