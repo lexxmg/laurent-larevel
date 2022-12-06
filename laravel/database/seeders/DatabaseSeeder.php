@@ -17,6 +17,12 @@ class DatabaseSeeder extends Seeder
         $relleDescription = 'Выход Laurent REL';
         $virtDescription = 'Выход Laurent IN коибтнируемый выход для получения обратной связи';
         // \App\Models\User::factory(10)->create();
+        \App\Models\AdminUser::insert([
+            'name' => 'admin',
+            'email' => 'lexx.mg@gmail.com',
+            'password' => bcrypt('1234')
+         ]);
+
         \App\Models\Laurent::insert([
             [
                 'name' => 'Спальня',

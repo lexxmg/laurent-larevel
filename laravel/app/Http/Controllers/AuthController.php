@@ -60,7 +60,7 @@ class AuthController extends Controller
         return back()->withInput();
     }
     
-    public function showLoginForm()
+    public function showloginForm()
     {
         return view('auth.login');
     }

@@ -50,6 +50,12 @@ cd example-app
 /Applications/XAMPP/bin/php artisan make:controller IndexController
 
 /**
+* Создать директорию Admin и в ней controller OutsController
+* --resource создает контроллер с готовыми методами для правки
+*/
+php artisan make:controller Admin/OutsController --resource
+
+/**
 * Создать ссылку для редактирования пагинатора, шаблон появится в каталоге
 * resources/views/vendor/pagination
 * файл для редактирования tailwind.blade.php

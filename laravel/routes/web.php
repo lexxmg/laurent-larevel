@@ -28,5 +28,5 @@ Route::get('/new-user-link', [\App\Http\Controllers\RegistrationLinkController::
 Route::post('/new-user-link', [\App\Http\Controllers\RegistrationLinkController::class, 'processNewUserLink'])->name('token.create.process');
 Route::get('/show-link', [\App\Http\Controllers\RegistrationLinkController::class, 'showToken'])->name('token.show');
 
-Route::get('/login', [\App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('login');
+Route::get('/login', [\App\Http\Controllers\AuthController::class, 'showloginForm'])->name('login');
 Route::post('/login-process', [\App\Http\Controllers\AuthController::class, 'login'])->name('login-process');
