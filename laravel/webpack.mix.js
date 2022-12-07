@@ -29,5 +29,20 @@ const mix = require('laravel-mix');
   console.log(arrayCssFullPath);
   
   mix.js('resources/js/app.js', 'public/js')
-      .styles(arrayCssFullPath, 'public/css/app.css');
+    .styles(arrayCssFullPath, 'public/css/app.css');
+  
+
+  const arrayAdminCss = [
+    'normalize.css',
+    'master.css',
+    'login.css',
+    'out.css',
+  ];
+  
+  const arrayAdminCssFullPath = arrayAdminCss.map(item => {
+    return 'resources/css/admin/' + item;
+  });
+
+  mix.js('resources/js/admin.js', 'public/js')
+    .styles(arrayAdminCssFullPath, 'public/css/admin.css');    
   
