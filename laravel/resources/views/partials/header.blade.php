@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header header-js">
   <div class="header__nav-container">
     <nav class="header__nav header-nav">
       <ul class="header-nav__list header-nav-list">

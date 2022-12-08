@@ -1,12 +1,21 @@
 'use strict';
 
-require('./bootstrap');
+//require('./bootstrap');
 
 if ( document.querySelector('.main-home__button-container-js') ) {
 
   const container = document.querySelector('.main-home__button-container-js'),
         allBtn = document.querySelectorAll('.button-container__btn-js'),
-        icons = document.querySelector('.icon-container-js');
+        icons = document.querySelector('.icon-container-js'),
+        header = document.querySelector('.header-js');
+
+  const headerHeight = header.clientHeight;
+
+  if ('scrollRestoration' in window.history) {
+    window.history.scrollRestoration = 'manual';
+  }
+
+  window.scrollTo(0, header.clientHeight);
 
   getStatus().then(data => console.log(data));      
 
