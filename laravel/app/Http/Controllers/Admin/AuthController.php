@@ -25,7 +25,7 @@ class AuthController extends Controller
 
         if (auth('admin')->attempt(['name' => $user, 'password' => $pass])) {
             //return redirect(route('home'));
-            return [$request->user()];
+            return [Auth::guard('admin')->user()];
         }
 
         return ['err'];
@@ -33,7 +33,7 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
-        Auth::logout();
+        Auth::guard('admin')->logout();
 
         $request->session()->invalidate();
 

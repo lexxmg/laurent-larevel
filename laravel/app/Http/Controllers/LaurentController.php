@@ -12,7 +12,7 @@ class LaurentController extends Controller
     public function out(Request $request)
     {
         $success = false;
-        $currentUserId = 1;
+        $currentUserId = auth('web')->user()->id;
         $id = $request->id;
 
         $outsUser = Out::find($id)->user; // пользователи которым принадлежит кнопка
@@ -70,7 +70,7 @@ class LaurentController extends Controller
         return Laurent::status($host);
     }
 
-    public function allStatus(Request $request)
+    public function allStatus()
     {
         $modelLaurent = laurentModel::all();
         //Laurent::allStatus($modelLaurent);

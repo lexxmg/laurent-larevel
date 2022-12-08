@@ -5,7 +5,7 @@
 @section('content')
   <main class="main-home">
     <div class="main-home__container">
-      @auth
+      @auth('web')
         <h1>Авторизованный пользователь {{ auth()->user()->name }}</h1>
       
         
@@ -29,7 +29,7 @@
         @include('partials.icon')
       @endauth
 
-      @guest
+      @guest('web')
           <h1>Вы не авторизованы</h1>
       @endguest
     </div>
