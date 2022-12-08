@@ -3,7 +3,7 @@
     <nav class="header__nav header-nav">
       <ul class="header-nav__list header-nav-list">
         <li class="header-nav-list__item">
-          <a href="#" class="header-nav-list__link">Главная</a>
+          <a href="{{ route('admin.outs.index') }}" class="header-nav-list__link">Aдмин-панель</a>
         </li>
 
         <li class="header-nav-list__item">
@@ -13,17 +13,15 @@
     </nav>
   </div>
 
-  @auth
-    <div class="header__btn-container header-btn-container">
-      <span class="header-btn-container__text">atth-user</span>
+  @auth('web')
+    <div class="header__name-container header-name-container">
+      <span class="header-name-container__text">{{ auth('web')->user()->name }}</span>
 
-      <a href="#" class="header__btn">Выйти</a>
+      <span class="header-name-container__text">{{ auth('web')->user()->device_name }}</span>
     </div>
   @endauth
   
-  @guest
-    <div class="header__btn-container">
-      <a href="#" class="header__btn">Войти</a>
-    </div>
+  @guest('web')
+    <span class="header__text">Нет доступа</span>
   @endguest
 </header>

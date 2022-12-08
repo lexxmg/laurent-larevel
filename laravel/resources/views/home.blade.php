@@ -3,12 +3,13 @@
 @section('title', 'Пульт')
 
 @section('content')
+
+@include('partials.header')
+
   <main class="main-home">
     <div class="main-home__container">
       @auth('web')
-        <h1>Авторизованный пользователь {{ auth()->user()->name }}</h1>
-      
-        
+
         <div class="main-home__button-container main-home__button-container-js">
           @foreach ($arr as $item)
             @include('partials.button', [

@@ -18,7 +18,7 @@ const mix = require('laravel-mix');
     'button.css',
     'login.css',
     'register.css',
-    'registration-link.css',
+    'header.css',
     'home.css'
   ];
   
@@ -35,6 +35,8 @@ const mix = require('laravel-mix');
   const arrayAdminCss = [
     'normalize.css',
     'master.css',
+    'header.css',
+    'registration-link.css',
     'login.css',
     'out.css',
   ];
