@@ -32,6 +32,10 @@
   display: block;
 
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+
+  text-overflow: ellipsis;
 }
 
 .button-container__btn--active {
@@ -53,6 +57,10 @@
   .button-container__btn {
     width: 65px;
     height: 65px;
+  }
+
+  .button-container__text {
+    font-size: 14px;
   }
 }
 

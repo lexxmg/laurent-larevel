@@ -1,13 +1,23 @@
 <header class="header header-js">
-  <div class="header__nav-container">
+  <div class="header__btn-menu-container">
+    <button class="header__btn header__btn-js icon-menu"></button>
+  </div>
+
+  <div class="header__nav-container header-nav-container header__nav-container-js">
+    <button class="header-nav-container__btn icon-home" aria-label="закрыть меню"></button>
+
     <nav class="header__nav header-nav">
       <ul class="header-nav__list header-nav-list">
-        <li class="header-nav-list__item">
-          <a href="{{ route('admin.outs.index') }}" class="header-nav-list__link">Aдмин-панель</a>
+        <li class="header-nav-list__item {{ request()->routeIs('home') ? 'header-nav-list__item--active' : '' }}">
+          <a href="{{ route('home') }}" class="header-nav-list__link">Главная</a>
+        </li>
+
+        <li class="header-nav-list__item {{ request()->routeIs('settings') ? 'header-nav-list__item--active' : '' }}">
+          <a href="{{ route('settings') }}" class="header-nav-list__link">Настройки</a>
         </li>
 
         <li class="header-nav-list__item">
-          <a href="#" class="header-nav-list__link">Настройки</a>
+          <a href="{{ route('admin.outs.index') }}" class="header-nav-list__link">Aдмин-панель</a>
         </li>
       </ul>
     </nav>

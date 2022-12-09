@@ -26,8 +26,6 @@
             ])
           @endforeach
         </div>
-
-        @include('partials.icon')
       @endauth
 
       @guest('web')

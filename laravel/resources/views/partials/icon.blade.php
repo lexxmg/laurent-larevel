@@ -1,4 +1,4 @@
-<div class="icon-container icon-container--hidden icon-container-js">
+<div class="icon-container icon-container-js">
   <ul>
     <li><i class="icon-dollar"></i> icon-dollar</li>
     <li><i class="icon-percent"></i> icon-percent</li>

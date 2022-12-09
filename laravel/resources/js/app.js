@@ -1,21 +1,45 @@
 'use strict';
 
 //require('./bootstrap');
+if ( document.querySelector('.header-js') ) {
+  const header = document.querySelector('.header-js'),
+        nav = document.querySelector('.header__nav-container-js'),
+        body = document.querySelector('body'),
+        btnMenu = document.querySelector('.header__btn-js'),
+        btnCloseMenu = document.querySelector('.header-nav-container__btn');
+  
+      
+  btnMenu.addEventListener('click', function(event) {
+    showMenu();
+  });
+
+  btnCloseMenu.addEventListener('click' ,function(event) {
+    hiddenMenu();
+  });
+
+  
+  function showMenu() {
+    nav.classList.add('show--menu');
+    body.classList.add('body--margim');
+  }
+
+  function hiddenMenu() {
+    nav.classList.remove('show--menu');
+    body.classList.remove('body--margim');
+  }
+}
 
 if ( document.querySelector('.main-home__button-container-js') ) {
 
   const container = document.querySelector('.main-home__button-container-js'),
-        allBtn = document.querySelectorAll('.button-container__btn-js'),
-        icons = document.querySelector('.icon-container-js'),
-        header = document.querySelector('.header-js');
-
-  const headerHeight = header.clientHeight;
-
+        header = document.querySelector('.header-js'),
+        allBtn = document.querySelectorAll('.button-container__btn-js');
+        
   if ('scrollRestoration' in window.history) {
     window.history.scrollRestoration = 'manual';
   }
 
-  window.scrollTo(0, header.clientHeight);
+  window.scrollTo(0, header.clientHeight);  
 
   getStatus().then(data => console.log(data));      
 
@@ -65,17 +89,7 @@ if ( document.querySelector('.main-home__button-container-js') ) {
   // 
   //   console.log(data[1].stat);
   // }, 10000);icon-container--hidden''
-  icons.addEventListener('click', async function(event) {
-    const target = event.target;
-    const icon = target.className;
-
-    const res = await fetch('/add-icon?icon=' + icon);
-    const data = await res.json();
-
-    this.classList.add('icon-container--hidden');
-    console.log(data);
-  });
-
+  
 
   function addClass(stat, item, rev = '0') {
     const statI = +stat;
@@ -156,4 +170,21 @@ if ( document.querySelector('.main-home__button-container-js') ) {
       return data;
     });
   }
+}
+
+if (document.querySelector('.icon-container-js')) {
+  const icons = document.querySelector('.icon-container-js');
+
+  icons.addEventListener('click', async function(event) {
+    const target = event.target;
+    const icon = target.className;
+
+    if (target.tagName === 'I') {
+      const res = await fetch('/add-icon?icon=' + icon);
+      const data = await res.json();
+
+    //this.classList.add('icon-container--hidden');
+      console.log(data);
+    }
+  });
 }

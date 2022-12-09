@@ -362,7 +362,7 @@ html {
 
 body {
   width: 100%;
-  min-width: 318px;               /* box-model */
+  min-width: 320px;               /* box-model */
   margin: 0;
 
   background-color: #f9f9f9;       /* Визаулизация */
@@ -496,6 +496,10 @@ h1, h2, h3, p, figure {
   display: block;
 
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+
+  text-overflow: ellipsis;
 }
 
 .button-container__btn--active {
@@ -517,6 +521,10 @@ h1, h2, h3, p, figure {
   .button-container__btn {
     width: 65px;
     height: 65px;
+  }
+
+  .button-container__text {
+    font-size: 14px;
   }
 }
 
@@ -582,8 +590,40 @@ h1, h2, h3, p, figure {
   color: white;
 }
 
+.header__btn-menu-container {
+  display: none;
+}
+
+.header__btn {
+  display: block;
+
+  border: none;
+
+  background: none;
+
+  color: inherit;
+
+  font-size: 20px;
+}
+
 .header__nav-container {
 
+}
+
+.header-nav-container__btn {
+  display: none;
+
+  width: 50px;
+  height: 50px;
+
+  margin: 20px 0 30px 30px;
+
+  border: none;
+  background: none;
+
+  color: inherit;
+
+  font-size: 40px;
 }
 
 .header__nav {
@@ -603,6 +643,8 @@ h1, h2, h3, p, figure {
 }
 
 .header-nav-list__item {
+  position: relative;
+
   display: block;
 
   margin: 0 10px 0 0;
@@ -621,18 +663,83 @@ h1, h2, h3, p, figure {
 }
 
 .header-name-container {
-
+  display: flex;
+  align-items: center;
 }
 
 .header-name-container__text {
+  display: block;
 
+  margin: 0 0 0 15px;
 }
 
 .header__text {
 
 }
 
+@media (max-width: 786px) {
+  .header__nav-container {
+    position: absolute;
+    top: 0;
+    left: -250px;
+    bottom: 0;
 
+    width: 250px;
+
+    padding: 0 0 0 20px;
+
+    background-color: inherit;
+
+    transition: left .2s;
+  }
+
+  .header__btn-menu-container {
+    display: block;
+  }
+
+  .header-nav-list {
+    flex-direction: column;
+  }
+
+  .header-nav-list__item {
+    align-self: baseline;
+
+    margin: 0 0 5px 0;
+  }
+
+  .header-nav-container__btn {
+    display: block;
+  }
+}
+
+.show--menu {
+  left: 0px;
+
+  transition: left .2s;
+}
+
+.body--margim {
+  margin: 0 0 0 250px;
+
+  overflow: hidden;
+
+  transition: margin .2s;
+}
+
+.header-nav-list__item--active::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+
+  display: block;
+
+  width: 100%;
+  height: 2px;
+
+  background-color: white;
+}
 .main-home {
   height: 100vh;
   
