@@ -8,15 +8,21 @@ if ( document.querySelector('.header-js') ) {
         btnMenu = document.querySelector('.header__btn-js'),
         btnCloseMenu = document.querySelector('.header-nav-container__btn');
   
-      
-  btnMenu.addEventListener('click', function(event) {
-    showMenu();
+  btnMenu.addEventListener('click' ,function(event) {
+    if (btnMenu.ariaExpanded === 'true') {
+      this.ariaExpanded = 'false';
+      hiddenMenu();
+    } else {
+      this.ariaExpanded = 'true';
+      showMenu();
+    }
   });
-
+  
   btnCloseMenu.addEventListener('click' ,function(event) {
+    btnMenu.ariaExpanded = 'false';
     hiddenMenu();
   });
-
+  
   
   function showMenu() {
     nav.classList.add('show--menu');
@@ -82,14 +88,6 @@ if ( document.querySelector('.main-home__button-container-js') ) {
   });
 
   setInterval(getStatus, 1000);
-
-  // setInterval(async () => {
-  //   const res = await fetch('/all-status');
-  //   const data = await res.json();
-  // 
-  //   console.log(data[1].stat);
-  // }, 10000);icon-container--hidden''
-  
 
   function addClass(stat, item, rev = '0') {
     const statI = +stat;

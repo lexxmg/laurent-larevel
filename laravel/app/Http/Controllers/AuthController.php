@@ -59,14 +59,4 @@ class AuthController extends Controller
 
         return back()->withInput();
     }
-    
-    public function showloginForm()
-    {
-        return view('auth.login');
-    }
-
-    public function login(Request $request)
-    {
-        # code...
-    }
 }

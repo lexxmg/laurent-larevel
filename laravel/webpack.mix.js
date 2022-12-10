@@ -16,7 +16,6 @@ const mix = require('laravel-mix');
     'master.css',
     'icon.css',
     'button.css',
-    'login.css',
     'register.css',
     'header.css',
     'home.css'
@@ -48,3 +47,4 @@ const mix = require('laravel-mix');
   mix.js('resources/js/admin.js', 'public/js')
     .styles(arrayAdminCssFullPath, 'public/css/admin.css');    
   
+  mix.copyDirectory('resources/images', 'public/images');

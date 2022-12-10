@@ -30,6 +30,7 @@
 
       @guest('web')
           <h1>Вы не авторизованы</h1>
+          <img src="{{ asset('images/access_denied.jpeg') }}" alt="">
       @endguest
     </div>
   </main>

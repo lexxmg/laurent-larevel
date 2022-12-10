@@ -26,19 +26,20 @@ if (document.querySelector('.header-js')) {
     btnMenu = document.querySelector('.header__btn-js'),
     btnCloseMenu = document.querySelector('.header-nav-container__btn');
   btnMenu.addEventListener('click', function (event) {
-    showMenu();
+    if (btnMenu.ariaExpanded === 'true') {
+      this.ariaExpanded = 'false';
+      hiddenMenu();
+    } else {
+      this.ariaExpanded = 'true';
+      showMenu();
+    }
   });
   btnCloseMenu.addEventListener('click', function (event) {
+    btnMenu.ariaExpanded = 'false';
     hiddenMenu();
   });
 }
 if (document.querySelector('.main-home__button-container-js')) {
-  // setInterval(async () => {
-  //   const res = await fetch('/all-status');
-  //   const data = await res.json();
-  // 
-  //   console.log(data[1].stat);
-  // }, 10000);icon-container--hidden''
   var addClass = function addClass(stat, item) {
     var rev = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '0';
     var statI = +stat;

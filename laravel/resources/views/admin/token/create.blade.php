@@ -1,5 +1,5 @@
 <div class="register-link register-link__container">
-  <form class="register-link__form" action="{{ route('token.create.process') }}" method="POST">
+  <form class="register-link__form" action="{{ route('admin.token.create.process') }}" method="POST">
     @csrf
 
     @foreach ($outs as $item)
