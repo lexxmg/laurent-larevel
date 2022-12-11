@@ -21,6 +21,8 @@ body {
   font-size: 16px;
   line-height: 1.429;
   color: black;
+
+  transition: margin .2s;
 }
 
 img {

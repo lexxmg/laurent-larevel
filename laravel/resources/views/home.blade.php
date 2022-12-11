@@ -29,8 +29,16 @@
       @endauth
 
       @guest('web')
-          <h1>Вы не авторизованы</h1>
-          <img src="{{ asset('images/access_denied.jpeg') }}" alt="">
+          <h1 class="main-home__guest-title">Вы не авторизованы</h1>
+
+          <div class="main-home__guest-inner-container">
+            <div class="main-home__guest-img-container">
+              <img class="main-home__guest-img" 
+                src="{{ asset('images/access_denied.jpeg') }}" 
+                alt="access-denied"
+              >
+            </div>
+          </div>
       @endguest
     </div>
   </main>

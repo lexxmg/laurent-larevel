@@ -50,11 +50,12 @@ class AuthController extends Controller
             //$user = User::find($user->id);
             $user->out()->attach($outs); // вставка выходов
 
-            Auth::guard('web')->loginUsingId($user->id, true);
+            if (Auth::guard('web')->loginUsingId($user->id, true)) {
+                $request->session()->regenerate();
+                $token->delete();
 
-            $token->delete();
-
-            return redirect()->route('home');
+                return redirect()->route('home');
+            }
         }
 
         return back()->withInput();

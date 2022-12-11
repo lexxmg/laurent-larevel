@@ -45,7 +45,9 @@ if ( document.querySelector('.main-home__button-container-js') ) {
     window.history.scrollRestoration = 'manual';
   }
 
-  window.scrollTo(0, header.clientHeight);  
+  if (window.innerWidth <= 786) {
+    window.scrollTo(0, header.clientHeight);  
+  }
 
   getStatus().then(data => console.log(data));      
 

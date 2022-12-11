@@ -110,7 +110,9 @@ if (document.querySelector('.main-home__button-container-js')) {
   if ('scrollRestoration' in window.history) {
     window.history.scrollRestoration = 'manual';
   }
-  window.scrollTo(0, _header.clientHeight);
+  if (window.innerWidth <= 786) {
+    window.scrollTo(0, _header.clientHeight);
+  }
   getStatus().then(function (data) {
     return console.log(data);
   });

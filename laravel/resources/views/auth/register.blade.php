@@ -11,34 +11,36 @@
         <div class="register-container__input-container 
           @error('name') register-container__input-container--error @enderror"
         >
-          <label class="register-container__title" 
-            for="register-name">Имя:
-          </label>
-
           <input class="register-container__input" 
             id="register-name" 
             type="text" 
             name="name"
+            required
             value="{{ @old('name', $name) }}"
           >
+
+          <label class="register-container__lable" 
+            for="register-name">Имя:
+          </label>
         </div>
 
         <div class="register-container__input-container 
           @error('device_name') register-container__input-container--error @enderror"
         >
-          <label class="register-container__title" 
-            for="device_name">Имя устройства:
-          </label>
-
           <input class="register-container__input" 
             id="device_name" 
             type="text" 
             name="device_name"
+            required
             value="{{ @old('device_name', $device_name) }}"
           >
+
+          <label class="register-container__lable" 
+            for="device_name">Имя устройства:
+          </label>
         </div>
 
-        <button>Войти</button>
+        <button class="register-container__btn">Войти</button>
       </form>
     </div>
 @endsection
