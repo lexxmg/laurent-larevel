@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:admin')->group(function() {
   Route::resource('outs', \App\Http\Controllers\Admin\OutsController::class);
 
+  Route::get('home', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('home');
+
   Route::get('logout', [\App\Http\Controllers\Admin\AuthController::class, 'logout'])->name('logout');
 
   Route::get('/new-user-link', [\App\Http\Controllers\RegistrationLinkController::class, 'newUserLink'])->name('token.create');

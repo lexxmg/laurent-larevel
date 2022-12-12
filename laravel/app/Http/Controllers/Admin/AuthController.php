@@ -15,20 +15,18 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        // $data = $request->validate([
-        //     'email' => ['required', 'email', 'string'],
-        //     'password' => ['required']
-        // ]);
-        $user = $request->user;
-        $pass = $request->password;
+        $data = $request->validate([
+            'name' => ['required', 'string'],
+            'password' => ['required', 'string']
+        ]);
         
-
-        if (auth('admin')->attempt(['name' => $user, 'password' => $pass])) {
+        if (auth('admin')->attempt($data)) {
+            $request->session()->regenerate();
             //return redirect(route('home'));
-            return [Auth::guard('admin')->user()];
+            return redirect(route('admin.home'));
         }
 
-        return ['err'];
+        return back()->withInput();
     }
 
     public function logout(Request $request)
@@ -39,6 +37,6 @@ class AuthController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect(route('admin.login'));
+        return redirect(route('home'));
     }
 }

@@ -14,6 +14,7 @@ class LaurentController extends Controller
         $success = false;
         $currentUserId = auth('web')->user()->id;
         $id = $request->id;
+        $isAdmin = auth('admin')->check();
 
         $outsUser = Out::find($id)->user; // пользователи которым принадлежит кнопка
 
@@ -24,7 +25,7 @@ class LaurentController extends Controller
             }
         }
 
-        if (!$success) {
+        if (!$isAdmin && !$success) {
             $header = [
                 'Content-Type' => 'application/json; charset=UTF-8',
                 'charset' => 'utf-8'

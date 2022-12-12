@@ -29,7 +29,7 @@ class OutController extends Controller
         $user->out()->attach($outs); // вставка выходов
 
         
-        $user2 = User::find(3);
+        //$user2 = User::find(3);
         //$allOuts = Out::all();
         //$outs = Out::find([9, 4, 13]);
         

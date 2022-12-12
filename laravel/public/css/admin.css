@@ -428,6 +428,260 @@ h1, h2, h3, p, figure {
 
 /*============================================================*/
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 20px;
+
+  width: 100%;
+  height: 50px;
+
+  background-color: rgb(13, 12, 14);
+}
+
+.header__btn-container {
+  display: flex;
+  justify-content: space-between;
+
+  color: white;
+}
+
+.header-btn-container__text {
+  display: block;
+
+  margin: 0 10px 0 0;
+} 
+
+.header__btn {
+
+}
+.main__button-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.button-container {
+  width: calc(100% / 5);
+
+  margin: 0 0 10px 0;
+}
+
+.button-container__btn {
+  display: block;
+
+  width: 200px;
+  height: 65px;
+
+  margin: 0 auto;
+
+  padding: 0;
+
+  border: 1px solid black;
+  border-radius: 10px;
+
+  background-color: transparent;
+
+  font-size: 40px;
+}
+
+.button-container__btn:disabled {
+  opacity: .3;
+
+  cursor: no-drop;
+}
+
+.button-container__text {
+  display: block;
+
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+.button-container__btn--active {
+  border-color: green;
+  background-color: green;
+
+  color: white;
+
+  opacity: 1 !important;
+}
+
+@media (max-width: 1050px) {
+  .button-container {
+    width: calc(100% / 4);
+  } 
+}
+
+@media (max-width: 890px) {
+  .button-container__btn {
+    width: 65px;
+    height: 65px;
+  }
+
+  .button-container__text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 340px) {
+  .button-container__btn {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+.main {
+  display: flex;
+
+  min-height: 100vh;
+
+  padding: 0 20px 0 0;
+}
+
+.main__nav-container {
+  width: 250px;
+
+  padding: 0 0 0 20px;
+
+  background-color: rgb(13, 12, 14);
+
+  color: white;
+}
+
+.main__content-container {
+  width: 100%;
+}
+
+.main__content {
+
+}
 
 
 
+
+.login-container {
+  max-width: 1024px;
+
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.login-container__form {
+  width: 400px;
+
+  margin: 100px auto;
+  padding: 10px;
+
+  border: 1px solid black;
+  border-radius: 10px;
+
+  background-color: white;
+}
+
+.login-container__input-container {
+  position: relative;
+
+  border: 1px solid black;
+  border-radius: inherit;
+
+  margin: 0 0 15px 0;
+  padding: 5px;
+}
+
+.login-container__lable {
+  position: absolute;
+  top: calc(50% - (22px / 2));
+  left: 7px;
+
+  display: block;
+
+  padding: 0 3px;
+
+  background-color: white;
+
+  transition: top .1s, left .1s;
+}
+
+.login-container__input {
+  display: block;
+
+  width: 100%;
+  height: 40px;
+
+  border: none;
+  background: none;
+
+  box-shadow: none;
+
+  outline: none;
+
+  font-size: 22px;
+}
+
+.login-container__input:focus + .login-container__lable {
+  top: -11px;
+  left: 14px;
+ 
+  transition: all .1s;
+}
+
+.login-container__input:valid + .login-container__lable {
+  top: -11px;
+  left: 14px;
+ 
+  transition: all .1s;
+}
+
+.login-container__btn {
+  display: block;
+
+  width: 200px;
+  height: 50px;
+
+  background-color: blue;
+  border: 1px solid blue;
+  border-radius: inherit;
+
+  color: white;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  transition: all .15;
+}
+
+.login-container__btn:hover {
+ 
+  background-color: transparent;
+  border: 1px solid blue;
+  
+  color: blue;
+
+  transition: all .15;
+}
+
+@media (max-width: 470px) {
+  .login-container__form {
+    width: 280px;
+  }
+
+  .login-container__btn {
+    width: 100%;
+  }
+
+  .login-container__input {
+    height: 30px;
+  }
+}
+
+.login-container__input-container--error {
+  border-color: tomato;
+  border-width: 2px;
+}
