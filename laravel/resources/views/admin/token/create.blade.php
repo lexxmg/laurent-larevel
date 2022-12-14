@@ -20,18 +20,20 @@
             @foreach ($outs as $item)
               <div class="register-link__inner">
                 <i class="register-link-icon {{ $item->icon->name }}"></i>
-                <div class="register-link__input-container">
-                  <label class="register-link__label" for="{{ $item->id }}">{{ $item->name }}</label>
-                  <input class="register-link__input visually-hidden" 
-                    id="{{ $item->id }}"
-                    type="checkbox"
-                    name="outs[]"
-                    value="{{ $item->id }}"
-                  >
-                </div>
-        
-                <div class="register-link__text-container">
-                  <span class="register-link__text">{{ $item->laurent->name }}</span>
+                <div class="register-link__inner-column">
+                  <div class="register-link__input-container">
+                    <label class="register-link__label" for="{{ $item->id }}">{{ $item->name }}</label>
+                    <input class="register-link__input visually-hidden" 
+                      id="{{ $item->id }}"
+                      type="checkbox"
+                      name="outs[]"
+                      value="{{ $item->id }}"
+                    >
+                  </div>
+          
+                  <div class="register-link__text-container">
+                    <span class="register-link__text">{{ $item->laurent->name }}</span>
+                  </div>
                 </div>
               </div>
             @endforeach
