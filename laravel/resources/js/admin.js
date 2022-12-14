@@ -26,3 +26,22 @@ if ( document.querySelector('.header__btn-menu-container') ) {
     main.classList.remove('main--show');
   }
 }
+
+if ( document.querySelector('.register-link-js') ) {
+  const container = document.querySelector('.register-link-js');
+        
+
+  container.addEventListener('click', event => {
+    const target =  event.target;
+    const parent = target.closest('.register-link__inner');
+    const checkBox = parent.querySelector('.register-link__input');
+    
+    if (checkBox.checked) {
+      checkBox.checked = false;
+      parent.classList.remove('register-link__inner--active');
+    } else {
+      checkBox.checked = true;
+      parent.classList.add('register-link__inner--active');
+    }
+  });
+}

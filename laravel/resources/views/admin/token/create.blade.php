@@ -1,6 +1,6 @@
 @extends('layout.admin')
 
-@section('title', 'Админ-панель')
+@section('title', 'Новый-пользователь')
 
 @include('admin.partials.header')
 
@@ -11,17 +11,18 @@
       </div>
 
       <div class="main__content-container">
-        <h1>Новый пользователь</h1>
+        <h1 class="main__title">Новый пользователь</h1>
 
-        <div class="register-link register-link__container">
+        <div class="register-link register-link__container register-link-js">
           <form class="register-link__form" action="{{ route('admin.token.create.process') }}" method="POST">
             @csrf
         
             @foreach ($outs as $item)
-              <div class="register-link__iner">
+              <div class="register-link__inner">
+                <i class="register-link-icon {{ $item->icon->name }}"></i>
                 <div class="register-link__input-container">
                   <label class="register-link__label" for="{{ $item->id }}">{{ $item->name }}</label>
-                  <input class="register-link__input" 
+                  <input class="register-link__input visually-hidden" 
                     id="{{ $item->id }}"
                     type="checkbox"
                     name="outs[]"

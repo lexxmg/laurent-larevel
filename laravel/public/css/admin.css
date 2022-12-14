@@ -586,8 +586,16 @@ h1, h2, h3, p, figure {
   color: white;
 }
 
+.main__title {
+  margin: 20px;
+
+  text-align: center;
+
+  font-size: 25px;
+}
+
 .main__content-container {
-  /* min-width: 100vw; */
+  flex-grow: 1;
 }
 
 .main__content {
@@ -606,7 +614,55 @@ h1, h2, h3, p, figure {
   overflow: hidden;
 }
 
+.register-link {
+  
+}
 
+.register-link__container {
+
+}
+
+.register-link__form {
+
+}
+
+.register-link__inner {
+  width: 200px;
+
+  border: 1px solid black;
+}
+
+.register-link-icon {
+
+}
+
+.register-link__input-container {
+
+}
+
+.register-link__label {
+
+}
+
+.register-link__input {
+
+}
+
+.register-link__text-container {
+
+}
+
+.register-link__text {
+
+}
+
+.register-link__btn {
+
+}
+
+.register-link__inner--active {
+  background-color: green;
+}
 .login-container {
   max-width: 1024px;
 

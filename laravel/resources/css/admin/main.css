@@ -16,8 +16,16 @@
   color: white;
 }
 
+.main__title {
+  margin: 20px;
+
+  text-align: center;
+
+  font-size: 25px;
+}
+
 .main__content-container {
-  /* min-width: 100vw; */
+  flex-grow: 1;
 }
 
 .main__content {

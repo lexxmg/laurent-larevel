@@ -11,7 +11,7 @@
       </div>
 
       <div class="main__content-container">
-        <h1>Главная</h1>
+        <h1 class="main__title">Главная</h1>
 
         <div class="main-content main__button-container main-home__button-container-js">
           @foreach ($arr as $item)
