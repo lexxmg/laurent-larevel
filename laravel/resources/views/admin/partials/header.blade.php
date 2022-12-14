@@ -1,6 +1,9 @@
-<header class="header">
-  <div class="header__nav-container">
-   
+<header class="header header-js header-admin-js">
+  <div class="header__btn-menu-container">
+    <button class="header__btn-menu header__btn-js icon-menu"
+      aria-expanded="false"
+      aria-controls="menu">
+    </button>
   </div>
 
   @auth('admin')

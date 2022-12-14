@@ -81,7 +81,7 @@ if (document.querySelector('.main-home__button-container-js')) {
   if ('scrollRestoration' in window.history) {
     window.history.scrollRestoration = 'manual';
   }
-  if (window.innerWidth <= 786) {
+  if (window.innerWidth <= 768 && !document.querySelector('.header-admin-js')) {
     window.scrollTo(0, header.clientHeight);
   }
   getStatus().then(function (data) {
@@ -160,6 +160,26 @@ var __webpack_exports__ = {};
 
 
 __webpack_require__(/*! ./buttons */ "./resources/js/buttons.js");
+if (document.querySelector('.header__btn-menu-container')) {
+  var showMenu = function showMenu() {
+    main.classList.add('main--show');
+  };
+  var hiddenMenu = function hiddenMenu() {
+    main.classList.remove('main--show');
+  };
+  var nav = document.querySelector('.main__nav-container'),
+    btnMenu = document.querySelector('.header__btn-js'),
+    main = document.querySelector('.main');
+  btnMenu.addEventListener('click', function (event) {
+    if (btnMenu.ariaExpanded === 'true') {
+      this.ariaExpanded = 'false';
+      hiddenMenu();
+    } else {
+      this.ariaExpanded = 'true';
+      showMenu();
+    }
+  });
+}
 })();
 
 /******/ })()

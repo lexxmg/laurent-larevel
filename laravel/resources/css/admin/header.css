@@ -1,6 +1,6 @@
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
 
   padding: 0 20px;
@@ -9,6 +9,22 @@
   height: 50px;
 
   background-color: rgb(13, 12, 14);
+}
+
+.header__btn-menu-container {
+  display: none;
+}
+
+.header__btn-menu {
+  display: block;
+
+  border: none;
+
+  background: none;
+
+  color: white;
+
+  font-size: 20px;
 }
 
 .header__btn-container {
@@ -26,4 +42,14 @@
 
 .header__btn {
 
+}
+
+@media (max-width: 767px) {
+  .header {
+    justify-content: space-between;
+  }
+
+  .header__btn-menu-container {
+    display: block;
+  }
 }

@@ -430,7 +430,7 @@ h1, h2, h3, p, figure {
 
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
 
   padding: 0 20px;
@@ -439,6 +439,22 @@ h1, h2, h3, p, figure {
   height: 50px;
 
   background-color: rgb(13, 12, 14);
+}
+
+.header__btn-menu-container {
+  display: none;
+}
+
+.header__btn-menu {
+  display: block;
+
+  border: none;
+
+  background: none;
+
+  color: white;
+
+  font-size: 20px;
 }
 
 .header__btn-container {
@@ -456,6 +472,16 @@ h1, h2, h3, p, figure {
 
 .header__btn {
 
+}
+
+@media (max-width: 767px) {
+  .header {
+    justify-content: space-between;
+  }
+
+  .header__btn-menu-container {
+    display: block;
+  }
 }
 .main__button-container {
   display: flex;
@@ -512,13 +538,13 @@ h1, h2, h3, p, figure {
   opacity: 1 !important;
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 1300px) {
   .button-container {
     width: calc(100% / 4);
   } 
 }
 
-@media (max-width: 890px) {
+@media (max-width: 1040px) {
   .button-container__btn {
     width: 65px;
     height: 65px;
@@ -526,6 +552,12 @@ h1, h2, h3, p, figure {
 
   .button-container__text {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 510px) {
+  .button-container {
+    width: 80px;
   }
 }
 
@@ -545,7 +577,7 @@ h1, h2, h3, p, figure {
 }
 
 .main__nav-container {
-  width: 250px;
+  min-width: 250px;
 
   padding: 0 0 0 20px;
 
@@ -555,14 +587,24 @@ h1, h2, h3, p, figure {
 }
 
 .main__content-container {
-  width: 100%;
+  /* min-width: 100vw; */
 }
 
 .main__content {
 
 }
 
+@media (max-width: 767px) {
+  .main {
+    margin: 0 0 0 -250px;
+    padding: 0;
+  }
+}
 
+.main--show {
+  margin-left: 0;
+  overflow: hidden;
+}
 
 
 .login-container {

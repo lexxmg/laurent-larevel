@@ -1,4 +1,4 @@
-<nav class="nav">
+<nav class="nav" id="menu">
   <ul class="nav__list nav-list">
     <li class="nav-list__item">
       <a href="{{ route('admin.home') }}" class="nav-list__link">Главная</a>

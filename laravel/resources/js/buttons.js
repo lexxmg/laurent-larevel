@@ -10,7 +10,7 @@ if ( document.querySelector('.main-home__button-container-js') ) {
     window.history.scrollRestoration = 'manual';
   }
 
-  if (window.innerWidth <= 786) {
+  if (window.innerWidth <= 768 && !document.querySelector('.header-admin-js')) {
     window.scrollTo(0, header.clientHeight);  
   }
 

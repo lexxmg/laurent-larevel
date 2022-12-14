@@ -53,13 +53,13 @@
   opacity: 1 !important;
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 1300px) {
   .button-container {
     width: calc(100% / 4);
   } 
 }
 
-@media (max-width: 890px) {
+@media (max-width: 1040px) {
   .button-container__btn {
     width: 65px;
     height: 65px;
@@ -67,6 +67,12 @@
 
   .button-container__text {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 510px) {
+  .button-container {
+    width: 80px;
   }
 }
 

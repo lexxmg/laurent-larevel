@@ -2,9 +2,9 @@
 
 @section('title', 'Админ-панель')
 
-@include('admin.partials.header')
-
 @section('content')
+    @include('admin.partials.header')
+
     <main class="main">
       <div class="main__nav-container">
         @include('admin.partials.nav')
