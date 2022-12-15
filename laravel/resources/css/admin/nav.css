@@ -1,0 +1,23 @@
+.nav {
+
+}
+
+.nav__list {
+
+}
+
+.nav-list {
+
+}
+
+.nav-list__item {
+  margin: 0 0 5px 0;
+}
+
+.nav-list__link {
+
+}
+
+.nav-list__item--active {
+  color: goldenrod;
+}

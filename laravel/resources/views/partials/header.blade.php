@@ -24,7 +24,7 @@
         @endauth
 
         <li class="header-nav-list__item">
-          <a href="{{ route('admin.outs.index') }}" class="header-nav-list__link">Aдмин-панель</a>
+          <a href="{{ route('admin.login') }}" class="header-nav-list__link">Aдмин-панель</a>
         </li>
       </ul>
     </nav>

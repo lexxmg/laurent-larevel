@@ -11,9 +11,9 @@
       </div>
 
       <div class="main__content-container">
-        <h1>Ссылка на регистрацию</h1>
+        <h1 class="main__title">Ссылка для регистрации</h1>
 
-        <a href="{{ $link }}" target="_blank">{{ $link }}</a>
+        <a class="register-link" href="{{ $link }}" target="_blank">{{ $link }}</a>
       </div>  
     </main>
 @endsection

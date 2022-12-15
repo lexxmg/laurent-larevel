@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:admin')->group(function() {
   Route::resource('outs', \App\Http\Controllers\Admin\OutsController::class);
+  Route::resource('token', \App\Http\Controllers\Admin\TokenController::class);
 
   Route::get('home', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('home');
 

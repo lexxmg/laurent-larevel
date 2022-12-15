@@ -184,14 +184,15 @@ if (document.querySelector('.register-link-js')) {
   var container = document.querySelector('.register-link-js');
   container.addEventListener('click', function (event) {
     var target = event.target;
+    if (!target.closest('.register-link__inner')) return false;
     var parent = target.closest('.register-link__inner');
     var checkBox = parent.querySelector('.register-link__input');
     if (checkBox.checked) {
       checkBox.checked = false;
-      parent.classList.remove('register-link__inner--active');
+      //parent.classList.remove('register-link__inner--active');
     } else {
       checkBox.checked = true;
-      parent.classList.add('register-link__inner--active');
+      //parent.classList.add('register-link__inner--active');
     }
   });
 }

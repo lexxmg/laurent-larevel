@@ -613,6 +613,90 @@ h1, h2, h3, p, figure {
   margin-left: 0;
   overflow: hidden;
 }
+.token-container {
+  padding: 0 20px;
+}
+
+.token__item {
+  margin: 0 0 20px 0;
+}
+
+.token-item {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.token-item__content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.token-item__text {
+  display: block;
+
+  margin: 0 10px 0 0;
+  padding: 5px;
+
+  word-wrap: anywhere;
+}
+
+.token-item__buttons {
+  display: flex;
+  align-items: center;
+}
+
+.token-item__form {
+  margin: 0;
+}
+
+.token-item__btn {
+  display: block;
+
+  width: 100px;
+  height: 30px;
+
+  background: none;
+  border: 1px solid red;
+
+  color: red;
+
+  cursor: pointer;
+
+  transition: color .15s;
+}
+
+.token-item__btn:hover {
+  background-color: red;
+
+  color: white;
+
+  transition: all .15s;
+} 
+
+
+.nav {
+
+}
+
+.nav__list {
+
+}
+
+.nav-list {
+
+}
+
+.nav-list__item {
+  margin: 0 0 5px 0;
+}
+
+.nav-list__link {
+
+}
+
+.nav-list__item--active {
+  color: goldenrod;
+}
 
 .register-link {
   
@@ -623,13 +707,22 @@ h1, h2, h3, p, figure {
 }
 
 .register-link__form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
+.register-link__card-container {
+  width: 300px;
+
+  margin: 0 0 10px 0;
 }
 
 .register-link__inner {
   display: flex;
 
   width: 250px;
+  margin: 0 auto;
 
   border: 1px solid black;
 }
@@ -641,6 +734,8 @@ h1, h2, h3, p, figure {
 
   width: 50px;
   height: 50px;
+
+  font-size: 30px;
 }
 
 .register-link__inner-column {
@@ -659,6 +754,12 @@ h1, h2, h3, p, figure {
 
 }
 
+.register-link__inner:has(.register-link__input:checked) {
+  background-color: green;
+
+  color: white;
+}
+
 .register-link__text-container {
 
 }
@@ -666,9 +767,23 @@ h1, h2, h3, p, figure {
 .register-link__text {
 
 }
+.register-link__btn-container {
+  min-width: 100%;
+
+  margin: 20px 0 0 0;
+}
 
 .register-link__btn {
+  display: block;
 
+  width: 250px;
+  height: 40px;
+
+  margin: 0 auto;
+}
+
+.register-link {
+  padding: 5px;
 }
 
 .register-link__inner--active {

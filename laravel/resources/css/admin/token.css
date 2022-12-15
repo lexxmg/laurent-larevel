@@ -1,0 +1,60 @@
+.token-container {
+  padding: 0 20px;
+}
+
+.token__item {
+  margin: 0 0 20px 0;
+}
+
+.token-item {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.token-item__content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.token-item__text {
+  display: block;
+
+  margin: 0 10px 0 0;
+  padding: 5px;
+
+  word-wrap: anywhere;
+}
+
+.token-item__buttons {
+  display: flex;
+  align-items: center;
+}
+
+.token-item__form {
+  margin: 0;
+}
+
+.token-item__btn {
+  display: block;
+
+  width: 100px;
+  height: 30px;
+
+  background: none;
+  border: 1px solid red;
+
+  color: red;
+
+  cursor: pointer;
+
+  transition: color .15s;
+}
+
+.token-item__btn:hover {
+  background-color: red;
+
+  color: white;
+
+  transition: all .15s;
+} 
+
