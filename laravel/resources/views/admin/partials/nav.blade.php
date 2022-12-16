@@ -4,6 +4,10 @@
       <a href="{{ route('admin.home') }}" class="nav-list__link">Главная</a>
     </li>
 
+    <li class="nav-list__item {{ request()->routeIs('admin.user.index') ? 'nav-list__item--active' : '' }}">
+      <a href="{{ route('admin.user.index') }}" class="nav-list__link">Пользователи</a>
+    </li>
+
     <li class="nav-list__item {{ request()->routeIs('admin.token.create') ? 'nav-list__item--active' : '' }}">
       <a href="{{ route('admin.token.create') }}" class="nav-list__link">Новый пользователь</a>
     </li>
