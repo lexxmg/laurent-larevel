@@ -10,18 +10,27 @@ use App\Models\Token;
 
 class AuthController extends Controller
 {
-    public function showRegisterForm($token)
+    public function showRegisterForm(Request $request, $token)
     {
-        //$token = $request->query('token');
-
         $token = Token::where('token', $token)->first();
+        $userId = $token->user_id;
 
-        if ($token) {
+        if ($userId) {
+            if (Auth::guard('web')->loginUsingId($userId, true)) {
+                $request->session()->regenerate();
+                $token->delete();
+
+                return redirect()->route('home');
+            }
+        }
+
+        if ($token && !$userId) {
             return view('auth.register', 
                 [
                     'token' => $token->token,
                     'name' => $token->name,
-                    'device_name' => $token->device_name
+                    'device_name' => $token->device_name,
+                    'user_id' =>$token->user_id
                 ]
             );
         }
@@ -32,7 +41,7 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $token = $request->token;
-
+        
         $token = Token::where('token', $token)->first();
         $outs = Str::of($token->outs)->explode('-');
         

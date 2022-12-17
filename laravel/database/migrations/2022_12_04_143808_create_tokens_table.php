@@ -18,7 +18,8 @@ class CreateTokensTable extends Migration
             $table->string('token');
             $table->string('name')->nullable();
             $table->string('device_name')->nullable();
-            $table->string('outs');
+            $table->string('outs')->nullable();
+            $table->bigInteger('user_id')->nullable();
             $table->timestamps();
         });
     }

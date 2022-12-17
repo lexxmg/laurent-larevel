@@ -37,6 +37,7 @@ const mix = require('laravel-mix');
     'header.css',
     'button.css',
     'main.css',
+    'user-card.css',
     'token.css',
     'nav.css',
     'registration-link.css',

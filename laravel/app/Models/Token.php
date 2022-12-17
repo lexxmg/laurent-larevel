@@ -13,6 +13,7 @@ class Token extends Model
         'token',
         'name',
         'device_name',
-        'outs'
+        'outs',
+        'user_id'
     ];
 }
