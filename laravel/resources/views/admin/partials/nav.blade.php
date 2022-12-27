@@ -15,5 +15,9 @@
     <li class="nav-list__item {{ request()->routeIs('admin.token.index') ? 'nav-list__item--active' : '' }}">
       <a href="{{ route('admin.token.index') }}" class="nav-list__link">Токены</a>
     </li>
+
+    <li class="nav-list__item {{ request()->routeIs('admin.outs.index') ? 'nav-list__item--active' : '' }}">
+      <a href="{{ route('admin.outs.index') }}" class="nav-list__link">Выходы</a>
+    </li>
   </ul>
 </nav>

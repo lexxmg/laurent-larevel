@@ -13,6 +13,11 @@ class AuthController extends Controller
     public function showRegisterForm(Request $request, $token)
     {
         $token = Token::where('token', $token)->first();
+
+        if (!$token) {
+            return abort(403);
+        }
+
         $userId = $token->user_id;
 
         if ($userId) {

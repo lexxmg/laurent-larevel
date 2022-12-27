@@ -43,6 +43,7 @@ const mix = require('laravel-mix');
     'registration-link.css',
     'login.css',
     'out.css',
+    'create-out.css'
   ];
   
   const arrayAdminCssFullPath = arrayAdminCss.map(item => {

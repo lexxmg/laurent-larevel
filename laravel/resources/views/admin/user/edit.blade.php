@@ -13,7 +13,10 @@
       <div class="main__content-container">
         <h1 class="main__title">Редактировать пользователя</h1>
 
-        <p>{{ $user->name }}</p>
+        <h2>
+          <span class="main__content-container__subtitle-text">{{ $user->name }}</span>
+          <span class="main__content-container__subtitle-text">{{ $user->device_name }}</span>
+        </h2>
 
         <div class="register-link register-link__container register-link-js">
           <form class="register-link__form" action="{{ route('admin.user.update', $user->id) }}" method="POST">
