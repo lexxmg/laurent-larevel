@@ -7,11 +7,13 @@
 }
 
 .outs-create-out__container {
-
+  width: 300px;
 }
 
 .outs-create-out__form {
+  width: 250px;
 
+  margin: 0 auto;
 }
 
 .outs-create-out-form {
@@ -23,7 +25,13 @@
 }
 
 .outs-create-out-form__input {
+  display: block;
 
+  width: 100%;
+  height: 40px;
+
+  border: 1px solid black;
+  border-radius: 0;
 }
 
 .outs-create-out-form__label {
@@ -31,7 +39,17 @@
 }
 
 .outs-create-out-form__select {
+  display: block;
 
+  width: 100%;
+  height: 40px;
+
+  border: 1px solid black;
+  border-radius: 0;
+
+  background-color: white;
+
+  appearance: none;
 }
 
 .outs-create-out-form__option {

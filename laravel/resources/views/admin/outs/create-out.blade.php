@@ -42,7 +42,7 @@
               <select class="outs-create-out-form__select" name="icon">
                 @foreach ($icons as $item)
                     <option class="outs-create-out-form__option" value="{{ $item->id }}">
-                      {{ $item->name }}
+                      {{ $item->description }}
                     </option>
                 @endforeach
               </select>
@@ -52,7 +52,7 @@
               <select class="outs-create-out-form__select" name="mode">
                 @foreach ($modes as $item)
                     <option class="outs-create-out-form__option" value="{{ $item->id }}">
-                      {{ $item->name }}
+                      {{ $item->description }}
                     </option>
                 @endforeach
               </select>
