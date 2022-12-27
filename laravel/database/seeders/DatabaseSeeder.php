@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
     {   
         $outDescription = 'Выход Laurent OUT';
         $relleDescription = 'Выход Laurent REL';
-        $virtDescription = 'Выход Laurent IN коибтнируемый выход для получения обратной связи';
+        $virtDescriptionFirstString = 'Выход Laurent IN-';
+        $virtDescriptionLastString = ' комбинируемый выход для получения обратной связи';
         // \App\Models\User::factory(10)->create();
         \App\Models\AdminUser::insert([
             'name' => 'admin',
@@ -59,112 +60,112 @@ class DatabaseSeeder extends Seeder
             [
                 'out' => 1,
                 'type' => 'out',
-                'description' => $outDescription
+                'description' => $outDescription . '-1'
             ],
             [
                 'out' => 2,
                 'type' => 'out',
-                'description' => $outDescription
+                'description' => $outDescription . '-2'
             ],
             [
                 'out' => 3,
                 'type' => 'out',
-                'description' => $outDescription
+                'description' => $outDescription . '-3'
             ],
             [
                 'out' => 4,
                 'type' => 'out',
-                'description' => $outDescription
+                'description' => $outDescription . '-4'
             ],
             [
                 'out' => 5,
                 'type' => 'out',
-                'description' => $outDescription
+                'description' => $outDescription . '-5'
             ],
             [
                 'out' => 6,
                 'type' => 'out',
-                'description' => $outDescription
+                'description' => $outDescription . '-6'
             ],
             [
                 'out' => 7,
                 'type' => 'out',
-                'description' => $outDescription
+                'description' => $outDescription . '-7'
             ],
             [
                 'out' => 8,
                 'type' => 'out',
-                'description' => $outDescription
+                'description' => $outDescription . '-8'
             ],
             [
                 'out' => 9,
                 'type' => 'out',
-                'description' => $outDescription
+                'description' => $outDescription . '-9'
             ],
             [
                 'out' => 10,
                 'type' => 'out',
-                'description' => $outDescription
+                'description' => $outDescription . '-10'
             ],
             [
                 'out' => 11,
                 'type' => 'out',
-                'description' => $outDescription
+                'description' => $outDescription . '-11'
             ],
             [
                 'out' => 12,
                 'type' => 'out',
-                'description' => $outDescription
+                'description' => $outDescription . '-12'
             ],
             [
                 'out' => 1,
                 'type' => 'relle',
-                'description' => $relleDescription
+                'description' => $relleDescription . '-1'
             ],
             [
                 'out' => 2,
                 'type' => 'relle',
-                'description' => $relleDescription
+                'description' => $relleDescription . '-2'
             ],
             [
                 'out' => 3,
                 'type' => 'relle',
-                'description' => $relleDescription
+                'description' => $relleDescription . '-3'
             ],
             [
                 'out' => 4,
                 'type' => 'relle',
-                'description' => $relleDescription
+                'description' => $relleDescription . '-4'
             ],
             [
                 'out' => 1,
                 'type' => 'virt',
-                'description' => $virtDescription
+                'description' => $virtDescriptionFirstString . '1' . $virtDescriptionLastString
             ],
             [
                 'out' => 2,
                 'type' => 'virt',
-                'description' => $virtDescription
+                'description' => $virtDescriptionFirstString . '2' . $virtDescriptionLastString
             ],
             [
                 'out' => 3,
                 'type' => 'virt',
-                'description' => $virtDescription
+                'description' => $virtDescriptionFirstString . '3' . $virtDescriptionLastString
             ],
             [
                 'out' => 4,
                 'type' => 'virt',
-                'description' => $virtDescription
+                'description' => $virtDescriptionFirstString . '4' . $virtDescriptionLastString
             ],
             [
                 'out' => 5,
                 'type' => 'virt',
-                'description' => $virtDescription
+                'description' => $virtDescriptionFirstString . '5' . $virtDescriptionLastString
             ],
             [
                 'out' => 6,
                 'type' => 'virt',
-                'description' => $virtDescription
+                'description' => $virtDescriptionFirstString . '6' . $virtDescriptionLastString
             ],
             [
                 'out' => 1,
