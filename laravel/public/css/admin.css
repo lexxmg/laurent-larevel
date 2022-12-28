@@ -430,7 +430,7 @@ h1, h2, h3, p, figure {
 
 .header {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
 
   padding: 0 20px;
@@ -511,6 +511,8 @@ h1, h2, h3, p, figure {
   background-color: transparent;
 
   font-size: 40px;
+
+  color: black;
 }
 
 .button-container__btn:disabled {
@@ -889,11 +891,11 @@ h1, h2, h3, p, figure {
 
 }
 
-.register-link__inner:has(.register-link__input:checked) {
+/* .register-link__inner:has(.register-link__input:checked) {
   background-color: green;
 
   color: white;
-}
+} */
 
 .register-link__text-container {
 
@@ -923,6 +925,8 @@ h1, h2, h3, p, figure {
 
 .register-link__inner--active {
   background-color: green;
+
+  color: white;
 }
 .login-container {
   max-width: 1024px;

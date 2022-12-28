@@ -14,6 +14,9 @@ Route::middleware('auth:admin')->group(function() {
   Route::get('/new-user-link', [\App\Http\Controllers\RegistrationLinkController::class, 'newUserLink'])->name('token.create');
   Route::post('/new-user-link', [\App\Http\Controllers\RegistrationLinkController::class, 'processNewUserLink'])->name('token.create.process');
   Route::get('/show-link', [\App\Http\Controllers\RegistrationLinkController::class, 'showToken'])->name('token.show');
+
+  Route::get('/out', [\App\Http\Controllers\LaurentController::class, 'out'])->name('laurent-out');
+  Route::get('/all-status', [\App\Http\Controllers\LaurentController::class, 'allStatus'])->name('laurent-all-status');
 });
 
 Route::middleware('guest:admin')->group(function() {

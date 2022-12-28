@@ -1,13 +1,9 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ({
-
-/***/ "./resources/js/buttons.js":
-/*!*********************************!*\
-  !*** ./resources/js/buttons.js ***!
-  \*********************************/
-/***/ (() => {
-
+var __webpack_exports__ = {};
+/*!*******************************!*\
+  !*** ./resources/js/admin.js ***!
+  \*******************************/
 
 
 if (document.querySelector('.main-home__button-container-js')) {
@@ -30,7 +26,7 @@ if (document.querySelector('.main-home__button-container-js')) {
     }
   };
   var getStatus = function getStatus() {
-    return fetch('/all-status').then(function (res) {
+    return fetch('/admin/all-status').then(function (res) {
       return res.json();
     }).then(function (data) {
       allBtn.forEach(function (item, i) {
@@ -98,7 +94,7 @@ if (document.querySelector('.main-home__button-container-js')) {
       if (event.target.dataset.mode === 'timer') {
         event.target.classList.add('button-container__btn--active');
       }
-      fetch("/out?id=".concat(id)).then(function (res) {
+      fetch("/admin/out?id=".concat(id)).then(function (res) {
         return res.json();
       }).then(function (data) {
         if (data.stat) {
@@ -121,45 +117,6 @@ if (document.querySelector('.main-home__button-container-js')) {
   });
   setInterval(getStatus, 1000);
 }
-
-/***/ })
-
-/******/ 	});
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
-/*!*******************************!*\
-  !*** ./resources/js/admin.js ***!
-  \*******************************/
-
-
-__webpack_require__(/*! ./buttons */ "./resources/js/buttons.js");
 if (document.querySelector('.header__btn-menu-container')) {
   var showMenu = function showMenu() {
     main.classList.add('main--show');
@@ -181,22 +138,28 @@ if (document.querySelector('.header__btn-menu-container')) {
   });
 }
 if (document.querySelector('.register-link-js')) {
-  var container = document.querySelector('.register-link-js');
-  container.addEventListener('click', function (event) {
+  var _container = document.querySelector('.register-link-js');
+  var cards = document.querySelectorAll('.register-link__card-container');
+  cards.forEach(function (item) {
+    var input = item.querySelector('.register-link__input');
+    var inner = item.querySelector('.register-link__inner');
+    if (input.checked) {
+      inner.classList.add('register-link__inner--active');
+    }
+  });
+  _container.addEventListener('click', function (event) {
     var target = event.target;
     if (!target.closest('.register-link__inner')) return false;
     var parent = target.closest('.register-link__inner');
     var checkBox = parent.querySelector('.register-link__input');
     if (checkBox.checked) {
       checkBox.checked = false;
-      //parent.classList.remove('register-link__inner--active');
+      parent.classList.remove('register-link__inner--active');
     } else {
       checkBox.checked = true;
-      //parent.classList.add('register-link__inner--active');
+      parent.classList.add('register-link__inner--active');
     }
   });
 }
-})();
-
 /******/ })()
 ;

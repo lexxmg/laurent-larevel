@@ -12,7 +12,12 @@ class LaurentController extends Controller
     public function out(Request $request)
     {
         $success = false;
-        $currentUserId = auth('web')->user()->id;
+        $currentUserId = NULL;;
+
+        if (auth('web')->check()) {
+            $currentUserId = auth('web')->user()->id;
+        }
+
         $id = $request->id;
         $isAdmin = auth('admin')->check();
 

@@ -54,11 +54,11 @@
 
 }
 
-.register-link__inner:has(.register-link__input:checked) {
+/* .register-link__inner:has(.register-link__input:checked) {
   background-color: green;
 
   color: white;
-}
+} */
 
 .register-link__text-container {
 
@@ -88,4 +88,6 @@
 
 .register-link__inner--active {
   background-color: green;
+
+  color: white;
 }
