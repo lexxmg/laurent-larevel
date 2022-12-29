@@ -22,7 +22,8 @@
               'revers' => $item['revers'],
               'name' => $item['name'],
               'laurent_id' => $item['laurent_id'],
-              'laurentOn' => $item->laurent['on']
+              'laurentOn' => $item->laurent['on'],
+              'confirm' => $item['confirm']
             ])
           @endforeach
         </div>

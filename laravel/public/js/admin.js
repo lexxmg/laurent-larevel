@@ -90,6 +90,11 @@ if (document.querySelector('.main-home__button-container-js')) {
     }
     ;
     if (id) {
+      if (event.target.dataset.confirm === '1') {
+        if (!confirm('Вы точно хотите нажать эту кнопку?')) {
+          return false;
+        }
+      }
       event.target.disabled = true;
       if (event.target.dataset.mode === 'timer') {
         event.target.classList.add('button-container__btn--active');

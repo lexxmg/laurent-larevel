@@ -1072,7 +1072,7 @@ h1, h2, h3, p, figure {
 }
 
 .outs-create-out-form__inner-input {
-
+  
 }
 
 .outs-create-out-form__input {
@@ -1100,7 +1100,7 @@ h1, h2, h3, p, figure {
 
   background-color: white;
 
-  appearance: none;
+  /* appearance: none; */
 }
 
 .outs-create-out-form__option {

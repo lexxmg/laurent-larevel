@@ -7,7 +7,8 @@
     data-type="{{ $type }}"
     data-mode="{{ $mode }}"
     data-laurent-id="{{ $laurent_id }}"
-    data-revers={{ $revers }}
+    data-revers="{{ $revers }}"
+    data-confirm="{{ $confirm }}"
     @if (!$laurentOn)
         disabled
     @endif
