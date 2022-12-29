@@ -39,8 +39,13 @@ class OutsController extends Controller
     {
         $laurents = Laurent::all();
         $gpioId = $request->gpio;
+
+        if (!$gpioId) {
+            return abort('419');
+        }
+
         $type = Gpio::find($gpioId)->type;
-        $modes = Mode::all();
+        $modes = Mode::find([2, 3]);
 
         if ($type === 'out' || $type === 'relle') {
             $icons = Icon::all();
@@ -61,6 +66,46 @@ class OutsController extends Controller
         }
 
         if ($type === 'virt') {
+            $outCount = $request->outCount;
+            $type = $request->type;
+            $icons = Icon::all();
+            
+            if ($outCount === '1') {
+                if ($type === 'relle') {
+                    return view('admin.outs.create-virt-one-relle', [
+                        'gpioId' => $gpioId,
+                        'laurents' => $laurents,
+                        'icons' => $icons
+                    ]);
+                }
+
+                if ($type === 'out') {
+                    return view('admin.outs.create-virt-one-out', [
+                        'gpioId' => $gpioId,
+                        'laurents' => $laurents,
+                        'icons' => $icons
+                    ]);
+                }
+            }
+
+            if ($outCount === '2') {
+                if ($type === 'relle') {
+                    return view('admin.outs.create-virt-two-relle', [
+                        'gpioId' => $gpioId,
+                        'laurents' => $laurents,
+                        'icons' => $icons
+                    ]);
+                }
+
+                if ($type === 'out') {
+                    return view('admin.outs.create-virt-two-out', [
+                        'gpioId' => $gpioId,
+                        'laurents' => $laurents,
+                        'icons' => $icons
+                    ]);
+                }
+            }
+
             return view('admin.outs.create-virt', [
                 'gpioId' => $gpioId,
                 'laurents' => $laurents
@@ -91,7 +136,8 @@ class OutsController extends Controller
                 'gpio_id' => (int) $gpioId,
                 'laurent_id' => (int) $laurentId,
                 'icon_id' => (int) $iconId,
-                'mode_id' => (int) $modeId
+                'mode_id' => (int) $modeId,
+                'revers' => false,
             ]);
 
             if ($outs) {
@@ -112,7 +158,46 @@ class OutsController extends Controller
         }
 
         if ($type === 'virt') {
-            
+            $outCount = $request->outCount;
+            $virt_on = $request->virt_on;
+            $virt_type = $request->virt_type;
+
+            if ($outCount === '1') {
+                $virt = Out::create([
+                    'name' => $name,
+                    'gpio_id' => (int) $gpioId,
+                    'icon_id' => (int) $iconId,
+                    'mode_id' => 4,
+                    'virt_on' => (int) $virt_on,
+                    'virt_type' => $virt_type,
+                    'revers' => false,
+                    'laurent_id' => (int) $laurentId
+                ]);
+
+                if ($virt) {
+                    return redirect()->route('admin.outs.index');
+                }
+            }
+
+            if ($outCount === '2') {
+                $virt_off = $request->virt_off;
+
+                $virt = Out::create([
+                    'name' => $name,
+                    'gpio_id' => (int) $gpioId,
+                    'icon_id' => (int) $iconId,
+                    'mode_id' => 4,
+                    'virt_on' => (int) $virt_on,
+                    'virt_off' => (int) $virt_off,  // номер выхода или NULL
+                    'virt_type' => $virt_type,
+                    'revers' => false,
+                    'laurent_id' => (int) $laurentId
+                ]);
+
+                if ($virt) {
+                    return redirect()->route('admin.outs.index');
+                }
+            }
         }
         
     }
