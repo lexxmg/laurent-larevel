@@ -225,7 +225,25 @@ class OutsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $outs = Out::find($id);
+        $laurents = Laurent::all();
+        $gpioId = $outs->gpio->id;
+        $icons = Icon::all();
+        $type = $outs->gpio->type;
+        $modes = Mode::find([2, 3]);
+
+        if ($type === 'out') {
+            return view('admin.outs.edit-out',[
+                'gpioId' => $gpioId,
+                'laurents' => $laurents,
+                'icons' => $icons,
+                'modes' => $modes,
+                'id' => $id,
+                'currentName' => $outs->name,
+                'currentMode' => $outs->mode_id,
+                'currentLaurentId' => $outs->laurent_id
+            ]);
+        }
     }
 
     /**
@@ -237,7 +255,7 @@ class OutsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd($id);
     }
 
     /**

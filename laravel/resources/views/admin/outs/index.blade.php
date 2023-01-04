@@ -55,11 +55,11 @@
                 </form>
 
                 <form class="outs-index-card__form"
-                  action="{{ route('admin.outs.update', $item->id) }}"
+                  action="{{ route('admin.outs.edit', $item->id) }}"
                   method="POST"
                 >
                   @csrf
-                  @method('PUT')
+                  @method('GET')
 
                   <button class="outs-index__btn outs-index__btn--margin">Редактировать</button>
                 </form>
