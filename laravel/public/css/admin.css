@@ -1117,8 +1117,172 @@ h1, h2, h3, p, figure {
   align-items: center;
 
   width: 100px;
-  height: 30px;
+  height: 40px;
 
-  border: 1px solid black;
-  background-color: transparent;
+  margin: 0 20px 0 0;
+
+  border: 1px solid green;
+  border-radius: 5px;
+
+  background-color: green;
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: background-color .15s, color .15s;
+}
+
+.outs-create-out-form__btn:hover {
+  background-color: white;
+
+  color: green;
+
+  transition: all .15s;
+}
+
+.outs-index {
+  max-width: 900px;
+
+  padding: 20px;
+}
+
+.outs-index__create-form-container {
+  
+
+}
+
+.outs-index-create-form-container {
+  padding: 5px;
+
+  background-color: white;
+
+  border: 1px solid wheat;
+  border-radius: 5px;
+}
+
+.outs-index-create-form-container__form {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 0;
+}
+
+.outs-index-create-form-title {
+  margin: 0 0 5px 0;
+
+  font-size: 20px;
+}
+
+.outs-index-create-form-container__select {
+  display: block;
+
+  height: 40px;
+
+  border: 1px solid black; 
+}
+
+.outs-index-create-form-container__foption {
+  
+}
+
+.outs-index__card {
+  margin: 10px 0 0 0;
+}
+
+.outs-index-card {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+
+  padding: 5px;
+
+  background-color: white;
+
+  border: 1px solid wheat;
+  border-radius: 5px;
+}
+
+.outs-index-card__content-container {
+
+}
+
+.outs-index-card__text {
+
+}
+
+.outs-index-card__btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.outs-index-card__form {
+  margin: 0;
+}
+
+.outs-index__btn {
+
+}
+
+.outs-index__btn {
+  display: block;
+
+  width: 123px;
+  height: 40px;
+
+  margin: 0 0 0 20px;
+
+  border: 1px solid green;
+  border-radius: 5px;
+
+  background-color: green;
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: background-color .15s, color .15s;
+}
+
+.outs-index__btn:hover {
+  background-color: white;
+
+  color: green;
+
+  transition: all .15s;
+}
+
+.outs-index__btn--red {
+  background-color: red;
+}
+
+.outs-index__btn--red:hover {
+  color: red;
+}
+
+@media (max-width: 1060px) {
+  .outs-index-create-form-container__form {
+    flex-direction: column;
+  }
+
+  .outs-index-create-form-container__select {
+    width: 100%;
+  }
+
+  .outs-index-card {
+    flex-direction: column;
+  }
+
+  .outs-index-card__btn-container {
+    justify-content: flex-start;
+  }
+
+  .outs-index__btn {
+    margin: 10px 20px 0 0;
+  }
+}
+
+.outs-index__btn--margin {
+  margin-right: 0;
 }

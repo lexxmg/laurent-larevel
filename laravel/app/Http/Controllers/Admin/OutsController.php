@@ -126,7 +126,8 @@ class OutsController extends Controller
         $name = $request->name;
         $iconId = $request->icon;
         $modeId = $request->mode;
-
+        $rev = $request->rev ? $rev = true : $rev = false;
+        $confirm = $request->confirm ? $confirm = true : $confirm = false;
         
         $type = Gpio::find($gpioId)->type;
 
@@ -137,7 +138,8 @@ class OutsController extends Controller
                 'laurent_id' => (int) $laurentId,
                 'icon_id' => (int) $iconId,
                 'mode_id' => (int) $modeId,
-                'revers' => false,
+                'revers' => $rev,
+                'confirm' => $confirm
             ]);
 
             if ($outs) {
@@ -170,7 +172,8 @@ class OutsController extends Controller
                     'mode_id' => 4,
                     'virt_on' => (int) $virt_on,
                     'virt_type' => $virt_type,
-                    'revers' => false,
+                    'revers' => $rev,
+                    'confirm' => $confirm,
                     'laurent_id' => (int) $laurentId
                 ]);
 
@@ -190,7 +193,8 @@ class OutsController extends Controller
                     'virt_on' => (int) $virt_on,
                     'virt_off' => (int) $virt_off,  // номер выхода или NULL
                     'virt_type' => $virt_type,
-                    'revers' => false,
+                    'revers' => $rev,
+                    'confirm' => $confirm,
                     'laurent_id' => (int) $laurentId
                 ]);
 
@@ -244,6 +248,8 @@ class OutsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Out::destroy($id);
+        
+        return redirect()->route('admin.outs.index');
     }
 }
