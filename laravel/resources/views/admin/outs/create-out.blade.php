@@ -28,6 +28,22 @@
               <label for="name" class="outs-create-out-form__label">Имя выхода</label>
             </div>
 
+            <div class="outs-create-out-form__inner-check">
+              <label class="outs-create-out-form__label-check">Реверс:
+                <input class="outs-create-out-form__check" 
+                  type="checkbox" name="rev"
+                >
+              </label>
+            </div>
+
+            <div class="outs-create-out-form__inner-check">
+              <label class="outs-create-out-form__label-check">Подтверждение:
+                <input class="outs-create-out-form__check" 
+                  type="checkbox" name="confirm"
+                >
+              </label>
+            </div>
+
             <div class="outs-create-out-form__inner-input">
               <select class="outs-create-out-form__select" name="laurent">
                 @foreach ($laurents as $item)
