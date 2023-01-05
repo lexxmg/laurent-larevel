@@ -15,28 +15,31 @@
 
         <div class="outs-create-out__container">
           <form class="outs-create-out__form outs-create-out-form" 
-            action="{{ route('admin.outs.update', $gpioId) }}"
+            action="{{ route('admin.outs.update', $id) }}"
             method="POST"
           >
             @csrf
             @method('PUT')
 
-            <input type="hidden" name="gpioId" value="{{ $gpioId }}">
-
             <div class="outs-create-out-form__inner-input">
+              <label for="name" class="outs-create-out-form__label">Имя выхода:</label>
+
               <input class="outs-create-out-form__input"
                 type="text"
                 name="name"
                 id="name"
                 value="{{ $currentName }}"
               >
-              <label for="name" class="outs-create-out-form__label">Имя выхода</label>
             </div>
 
             <div class="outs-create-out-form__inner-check">
               <label class="outs-create-out-form__label-check">Реверс:
                 <input class="outs-create-out-form__check" 
-                  type="checkbox" name="rev"
+                  type="checkbox"
+                  name="rev"
+                  @if ($currentRev == 1)
+                      checked
+                  @endif
                 >
               </label>
             </div>
@@ -45,6 +48,9 @@
               <label class="outs-create-out-form__label-check">Подтверждение:
                 <input class="outs-create-out-form__check" 
                   type="checkbox" name="confirm"
+                  @if ($currentConfirm == 1)
+                      checked
+                  @endif
                 >
               </label>
             </div>
@@ -67,7 +73,12 @@
             <div class="outs-create-out-form__inner-input">
               <select class="outs-create-out-form__select" name="icon">
                 @foreach ($icons as $item)
-                    <option class="outs-create-out-form__option" value="{{ $item->id }}">
+                    <option class="outs-create-out-form__option"
+                      value="{{ $item->id }}"
+                      @if ($item->id === $currentIcon)
+                          selected
+                      @endif
+                    >
                       {{ $item->description }}
                     </option>
                 @endforeach
@@ -90,7 +101,7 @@
             </div>
 
             <div class="outs-create-out-form__inner-btn">
-              <button class="outs-create-out-form__btn">Создать</button>
+              <button class="outs-create-out-form__btn">Применить</button>
               <a class="outs-create-out-form__btn" href="{{ route('admin.outs.index') }}">Отменить</a>
             </div>
           </form>

@@ -227,21 +227,27 @@ class OutsController extends Controller
     {
         $outs = Out::find($id);
         $laurents = Laurent::all();
-        $gpioId = $outs->gpio->id;
         $icons = Icon::all();
         $type = $outs->gpio->type;
         $modes = Mode::find([2, 3]);
 
-        if ($type === 'out') {
+        if ($type === 'temp' || $type === 'abc1' || $type === 'abc2') {
+            dd($type);
+        }
+
+
+        if ($type === 'out' || $type === 'relle') {
             return view('admin.outs.edit-out',[
-                'gpioId' => $gpioId,
                 'laurents' => $laurents,
                 'icons' => $icons,
                 'modes' => $modes,
                 'id' => $id,
                 'currentName' => $outs->name,
                 'currentMode' => $outs->mode_id,
-                'currentLaurentId' => $outs->laurent_id
+                'currentLaurentId' => $outs->laurent_id,
+                'currentRev' => $outs->revers,
+                'currentConfirm' => $outs->confirm,
+                'currentIcon' => $outs->icon_id
             ]);
         }
     }
@@ -255,7 +261,35 @@ class OutsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($id);
+        $out = Out::find($id);
+        $type = $out->gpio->type;
+
+        $laurentId = $request->laurent;
+        $name = $request->name;
+        $iconId = $request->icon;
+        $modeId = $request->mode;
+        $rev = $request->rev ? $rev = true : $rev = false;
+        $confirm = $request->confirm ? $confirm = true : $confirm = false;
+        
+        if ($type === 'temp' || $type === 'abc1' || $type === 'abc2') {
+            $out->name = $name;
+            $out->save();
+
+            return redirect()->route('admin.outs.index'); 
+        }
+
+        
+        if ($type === 'out' || $type === 'relle') {
+            $out->name = $name;
+            $out->revers = $rev;
+            $out->confirm = $confirm;
+            $out->laurent_id = $laurentId;
+            $out->icon_id = $iconId;
+            $out->mode_id = $modeId;
+            $out->save();
+
+            return redirect()->route('admin.outs.index'); 
+        }
     }
 
     /**
