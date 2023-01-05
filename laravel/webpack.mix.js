@@ -44,7 +44,8 @@ const mix = require('laravel-mix');
     'login.css',
     'out.css',
     'create-out.css',
-    'index-out.css'
+    'index-out.css',
+    'icon.css'
   ];
   
   const arrayAdminCssFullPath = arrayAdminCss.map(item => {

@@ -197,3 +197,20 @@ if ( document.querySelector('.register-link-js') ) {
     }
   });
 }
+
+if (document.querySelector('.icon-container-js')) {
+  const icons = document.querySelector('.icon-container-js');
+
+  icons.addEventListener('click', async function(event) {
+    const target = event.target;
+    const icon = target.className;
+
+    if (target.tagName === 'I') {
+      const res = await fetch('/admin/add-icon?icon=' + icon);
+      const data = await res.json();
+
+    //this.classList.add('icon-container--hidden');
+      console.log(data);
+    }
+  });
+}

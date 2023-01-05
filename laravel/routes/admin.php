@@ -26,6 +26,7 @@ Route::middleware('guest:admin')->group(function() {
 
 
 Route::get('/add-icon', [\App\Http\Controllers\IconController::class, 'addIcon'])->name('add-icon');
+Route::get('/icon', [\App\Http\Controllers\IconController::class, 'index'])->name('icon');
 Route::get('/get-out', [\App\Http\Controllers\OutController::class, 'getOutUser'])->name('get-out');
 Route::get('/add-out', [\App\Http\Controllers\OutController::class, 'addOuts'])->name('add-out');
 
